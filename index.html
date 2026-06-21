@@ -1,176 +1,247 @@
 <!doctype html>
-<html lang="en" data-bs-theme="dark">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="description" content="Central navigation hub for hosted applications and subdomains." />
-    <meta name="robots" content="index, follow" />
     <title>Applications Hub</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Syne:wght@700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
+    <div class="preloader" id="preloader" aria-hidden="true">
+      <div class="preloader__ring"></div>
+      <span class="preloader__text" id="preloader-text">Loading</span>
+    </div>
+
     <a class="visually-hidden-focusable skip-link" href="#main">Skip to content</a>
+
+    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
+    <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
+    <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
 
     <canvas id="particle-canvas" aria-hidden="true"></canvas>
 
-    <div class="ambient" aria-hidden="true">
-      <div class="ambient__orb ambient__orb--1"></div>
-      <div class="ambient__orb ambient__orb--2"></div>
-      <div class="ambient__orb ambient__orb--3"></div>
-      <div class="ambient__grid"></div>
+    <div class="dot-grid" aria-hidden="true"></div>
+
+    <div class="aurora" aria-hidden="true">
+      <div class="aurora__band aurora__band--1"></div>
+      <div class="aurora__band aurora__band--2"></div>
+      <div class="aurora__band aurora__band--3"></div>
     </div>
 
-    <nav class="navbar navbar-expand-lg fixed-top site-nav">
+    <div class="mesh-bg" aria-hidden="true">
+      <div class="mesh-blob mesh-blob--1 js-parallax" data-speed="0.15"></div>
+      <div class="mesh-blob mesh-blob--2 js-parallax" data-speed="-0.1"></div>
+      <div class="mesh-blob mesh-blob--3 js-parallax" data-speed="0.08"></div>
+      <div class="mesh-blob mesh-blob--4 js-parallax" data-speed="-0.12"></div>
+    </div>
+
+    <div class="floating-shapes" aria-hidden="true">
+      <span class="shape shape--1"></span>
+      <span class="shape shape--2"></span>
+      <span class="shape shape--3"></span>
+      <span class="shape shape--4"></span>
+      <span class="shape shape--5"></span>
+      <span class="shape shape--6"></span>
+    </div>
+
+    <nav class="navbar fixed-top site-nav" id="site-nav">
       <div class="container">
-        <a class="navbar-brand d-flex align-items-center gap-2" href="#">
+        <a class="navbar-brand" href="#">
           <span class="brand-mark" id="brand-initials">S</span>
           <span class="brand-text" id="brand-name">Applications Hub</span>
         </a>
-        <div class="d-flex align-items-center gap-2">
-          <a class="btn btn-nav-scroll d-none d-md-inline-flex" href="#apps">
-            <i class="bi bi-grid-3x3-gap me-1"></i> Explore
-          </a>
-          <button type="button" class="btn btn-theme" id="theme-toggle" aria-label="Toggle theme">
-            <i class="bi bi-sun-fill theme-icon-light"></i>
-            <i class="bi bi-moon-stars-fill theme-icon-dark"></i>
-          </button>
-        </div>
+        <a class="btn btn-nav magnetic" href="#apps">
+          <span class="btn-nav__shine" aria-hidden="true"></span>
+          <span class="btn-nav__text">Explore Apps</span>
+          <i class="bi bi-arrow-right"></i>
+        </a>
       </div>
     </nav>
 
     <main id="main">
-      <!-- Hero -->
-      <section class="hero-section d-flex align-items-center">
-        <div class="container position-relative">
-          <div class="row align-items-center g-5">
-            <div class="col-lg-7">
-              <div class="hero-badge" data-aos="fade-down" data-aos-duration="800">
-                <span class="pulse-dot"></span>
-                Welcome to my digital space
+      <section class="hero">
+        <div class="container">
+          <div class="row align-items-center min-vh-100 py-5">
+            <div class="col-lg-6 hero-content">
+              <div class="hero-chip js-hero-item">
+                <span class="hero-chip__dot"></span>
+                <span>Software Engineer · Portfolio Hub</span>
               </div>
 
-              <h1 class="hero-title" data-aos="fade-up" data-aos-duration="900" data-aos-delay="100">
-                <span class="hero-title__line">Hello, I'm</span>
-                <span class="hero-title__name" id="hero-name">Shabin</span>
+              <p class="hero-greeting js-hero-item">
+                <span class="hero-greeting__wave">👋</span> Hello, I'm
+              </p>
+
+              <h1 class="hero-name" id="hero-name-wrap">
+                <span class="hero-name__text" id="hero-name">Shabin</span>
               </h1>
 
-              <p class="hero-lead" id="hero-tagline" data-aos="fade-up" data-aos-delay="200">
-                Navigate to my projects and applications
+              <p class="hero-tagline js-hero-item">
+                <span id="hero-tagline">I build</span>
+                <span class="hero-tagline__rotate" id="typed-words">amazing apps</span>
+                <span class="hero-tagline__cursor" aria-hidden="true">|</span>
               </p>
-              <p class="hero-desc" id="hero-desc" data-aos="fade-up" data-aos-delay="300">
+
+              <p class="hero-desc js-hero-item" id="hero-desc">
                 A central gateway to all hosted applications and subdomains.
               </p>
 
-              <div class="hero-actions" data-aos="fade-up" data-aos-delay="400">
-                <a href="#apps" class="btn btn-primary btn-glow btn-lg px-4">
-                  View Applications <i class="bi bi-arrow-down-circle ms-2"></i>
+              <div class="hero-pills js-hero-item" id="hero-pills" aria-hidden="true">
+                <span>Angular</span><span>.NET</span><span>Azure</span><span>TypeScript</span>
+              </div>
+
+              <div class="hero-btns js-hero-item">
+                <a href="#apps" class="btn btn-hero-primary magnetic">
+                  <span class="btn-hero-primary__ripple" aria-hidden="true"></span>
+                  <span>Launch Apps</span>
+                  <i class="bi bi-rocket-takeoff-fill"></i>
                 </a>
-                <a href="#footer" class="btn btn-outline-light btn-lg px-4 ms-2 ms-sm-3 mt-3 mt-sm-0">
-                  Connect <i class="bi bi-chat-dots ms-2"></i>
+                <a href="#footer" class="btn btn-hero-ghost magnetic">
+                  <span>Get in Touch</span>
+                  <i class="bi bi-send-fill"></i>
                 </a>
               </div>
 
-              <div class="hero-stats row g-3 mt-5" data-aos="fade-up" data-aos-delay="500">
-                <div class="col-4">
-                  <div class="stat-pill">
-                    <span class="stat-pill__value" id="stat-apps">0</span>
-                    <span class="stat-pill__label">Apps</span>
-                  </div>
+              <div class="hero-stats js-hero-item">
+                <div class="hero-stat">
+                  <span class="hero-stat__num" id="stat-apps">0</span>
+                  <span class="hero-stat__lbl">Projects</span>
                 </div>
-                <div class="col-4">
-                  <div class="stat-pill">
-                    <span class="stat-pill__value" id="stat-live">0</span>
-                    <span class="stat-pill__label">Live</span>
-                  </div>
+                <div class="hero-stat__divider"></div>
+                <div class="hero-stat">
+                  <span class="hero-stat__num" id="stat-live">0</span>
+                  <span class="hero-stat__lbl">Live</span>
                 </div>
-                <div class="col-4">
-                  <div class="stat-pill">
-                    <span class="stat-pill__value" id="stat-soon">0</span>
-                    <span class="stat-pill__label">Soon</span>
-                  </div>
+                <div class="hero-stat__divider"></div>
+                <div class="hero-stat">
+                  <span class="hero-stat__num" id="stat-soon">0</span>
+                  <span class="hero-stat__lbl">Coming</span>
                 </div>
               </div>
             </div>
 
-            <div class="col-lg-5 d-none d-lg-block" data-aos="zoom-in" data-aos-duration="1000" data-aos-delay="200">
-              <div class="hero-visual">
-                <div class="hero-ring hero-ring--1"></div>
-                <div class="hero-ring hero-ring--2"></div>
-                <div class="hero-orb">
-                  <span class="hero-orb__initial" id="hero-initial">S</span>
-                  <div class="hero-orb__orbit">
-                    <i class="bi bi-code-slash"></i>
+            <div class="col-lg-6 d-none d-lg-block">
+              <div class="hero-visual js-hero-visual" id="hero-visual">
+                <div class="code-stack">
+                  <div class="code-window code-window--back">
+                    <div class="code-window__bar">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <div class="code-window__body">
+                      <code><span class="tok-kw">const</span> <span class="tok-var">hub</span> = {<br>&nbsp;&nbsp;apps: <span class="tok-num">4</span>,<br>&nbsp;&nbsp;live: <span class="tok-str">'portfolio'</span><br>};</code>
+                    </div>
                   </div>
-                  <div class="hero-orb__orbit hero-orb__orbit--2">
-                    <i class="bi bi-rocket-takeoff"></i>
+                  <div class="code-window code-window--mid">
+                    <div class="code-window__bar">
+                      <span></span><span></span><span></span>
+                    </div>
+                    <div class="code-window__body">
+                      <code><span class="tok-kw">export</span> <span class="tok-kw">class</span> <span class="tok-fn">AppHub</span> {<br>&nbsp;&nbsp;<span class="tok-fn">launch</span>() { ... }<br>}</code>
+                    </div>
                   </div>
-                  <div class="hero-orb__orbit hero-orb__orbit--3">
-                    <i class="bi bi-stars"></i>
+                  <div class="code-window code-window--front">
+                    <div class="code-window__bar">
+                      <span></span><span></span><span></span>
+                      <em>hub.config.ts</em>
+                    </div>
+                    <div class="code-window__body">
+                      <code><span class="tok-cmt">// Your apps, one click away</span><br><span class="tok-kw">await</span> <span class="tok-fn">navigate</span>(<span class="tok-str">'#apps'</span>);</code>
+                    </div>
                   </div>
                 </div>
+                <div class="orbit-icons" aria-hidden="true">
+                  <div class="orbit-icon orbit-icon--1"><i class="bi bi-lightning-charge-fill"></i></div>
+                  <div class="orbit-icon orbit-icon--2"><i class="bi bi-stars"></i></div>
+                  <div class="orbit-icon orbit-icon--3"><i class="bi bi-globe2"></i></div>
+                  <div class="orbit-icon orbit-icon--4"><i class="bi bi-cpu-fill"></i></div>
+                </div>
+                <div class="visual-glow" aria-hidden="true"></div>
               </div>
             </div>
           </div>
-
-          <a href="#apps" class="scroll-hint" aria-label="Scroll to applications">
-            <span class="scroll-hint__mouse"></span>
-            <span class="scroll-hint__text">Scroll</span>
-          </a>
         </div>
+
+        <a href="#apps" class="scroll-indicator" aria-label="Scroll down">
+          <span class="scroll-indicator__wheel"></span>
+          <span class="scroll-indicator__label">Scroll</span>
+        </a>
       </section>
 
-      <!-- Apps -->
-      <section id="apps" class="apps-section py-5">
+      <div class="marquee-section" aria-hidden="true">
+        <div class="marquee-wrap">
+          <div class="marquee marquee--fwd">
+            <div class="marquee__track" id="marquee-track">
+              <span>Angular</span><span>•</span><span>TypeScript</span><span>•</span><span>.NET</span><span>•</span>
+              <span>Azure</span><span>•</span><span>Full Stack</span><span>•</span><span>Cloud</span><span>•</span>
+              <span>Angular</span><span>•</span><span>TypeScript</span><span>•</span><span>.NET</span><span>•</span>
+              <span>Azure</span><span>•</span><span>Full Stack</span><span>•</span><span>Cloud</span><span>•</span>
+            </div>
+          </div>
+        </div>
+        <div class="marquee-wrap marquee-wrap--reverse">
+          <div class="marquee marquee--rev">
+            <div class="marquee__track">
+              <span>PrimeNG</span><span>◆</span><span>REST APIs</span><span>◆</span><span>SQL Server</span><span>◆</span>
+              <span>DevOps</span><span>◆</span><span>Clean Architecture</span><span>◆</span><span>Microservices</span><span>◆</span>
+              <span>PrimeNG</span><span>◆</span><span>REST APIs</span><span>◆</span><span>SQL Server</span><span>◆</span>
+              <span>DevOps</span><span>◆</span><span>Clean Architecture</span><span>◆</span><span>Microservices</span><span>◆</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="section-divider js-reveal" aria-hidden="true">
+        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
+          <path class="section-divider__line" d="M0,30 Q300,0 600,30 T1200,30" fill="none" stroke-width="2" />
+        </svg>
+      </div>
+
+      <section id="apps" class="apps-section">
         <div class="container">
-          <div class="section-head text-center mb-5">
-            <span class="section-label" data-aos="fade-up">Portfolio Gateway</span>
-            <h2 class="section-title" data-aos="fade-up" data-aos-delay="100">Choose Your Destination</h2>
-            <p class="section-subtitle mx-auto" data-aos="fade-up" data-aos-delay="200">
-              Each application lives on its own subdomain — pick one to launch.
-            </p>
+          <div class="section-intro js-reveal">
+            <span class="section-intro__tag">// destinations</span>
+            <h2 class="section-intro__title">
+              <span class="title-word">Pick</span>
+              <span class="title-word title-word--grad">an Application</span>
+            </h2>
+            <p class="section-intro__desc">Each project runs on its own subdomain — click to launch.</p>
           </div>
 
-          <div class="row g-4" id="apps-grid" role="list">
+          <div class="apps-bento" id="apps-grid" role="list">
             <div class="col-12 text-center py-5" id="apps-loading">
-              <div class="spinner-border text-primary" role="status">
-                <span class="visually-hidden">Loading...</span>
-              </div>
+              <div class="loader" aria-label="Loading"></div>
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer id="footer" class="site-footer py-5">
+    <footer id="footer" class="site-footer">
+      <div class="footer-aurora" aria-hidden="true"></div>
       <div class="container">
-        <div class="footer-card">
-          <div class="row align-items-center g-4">
-            <div class="col-md-6">
-              <h3 class="footer-title">Let's build something great.</h3>
-              <p class="footer-text mb-0">
-                &copy; <span id="footer-year"></span> <span id="footer-name">Shabin</span>. Crafted with passion.
-              </p>
-            </div>
-            <div class="col-md-6">
-              <nav class="social-nav d-flex justify-content-md-end gap-2" id="social-links" aria-label="Social links"></nav>
-            </div>
+        <div class="footer-inner js-reveal">
+          <div class="footer-inner__left">
+            <h3>Let's create something <em>extraordinary</em>.</h3>
+            <p>&copy; <span id="footer-year"></span> <span id="footer-name">Shabin</span></p>
           </div>
+          <nav class="footer-social" id="social-links" aria-label="Social links"></nav>
         </div>
       </div>
     </footer>
 
     <script src="data/apps.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
     <script src="js/main.js"></script>
   </body>
 </html>

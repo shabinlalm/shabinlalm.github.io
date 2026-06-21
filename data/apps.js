@@ -23,7 +23,7 @@ window.APP_CONFIG = {
       "description": "Technical articles, tutorials, and development notes.",
       "url": "https://blog.yourdomain.com",
       "icon": "article",
-      "status": "coming-soon",
+      "status": "live",
       "accent": "#7c3aed",
       "tags": ["Writing", "Tech"]
     },
