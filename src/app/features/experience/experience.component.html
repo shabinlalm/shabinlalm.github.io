@@ -1,0 +1,60 @@
+<app-page-hero
+  eyebrow="Career"
+  title="Work Experience"
+  subtitle="A timeline of professional roles and key contributions."
+/>
+
+<section class="section">
+  <div class="container container--narrow">
+    <p-timeline [value]="portfolioService.experience()" align="alternate" styleClass="experience-timeline">
+      <ng-template #marker let-exp>
+        <span
+          class="timeline-marker"
+          [class.timeline-marker--current]="exp.current"
+          aria-hidden="true"
+        >
+          <i class="pi pi-briefcase"></i>
+        </span>
+      </ng-template>
+
+      <ng-template #content let-exp>
+        <article class="timeline-card card-surface" appScrollAnimate animation="fade-up">
+          <div class="timeline-card__header">
+            <h3 class="timeline-card__role">{{ exp.role }}</h3>
+            <p class="timeline-card__company">{{ exp.company }}</p>
+          </div>
+
+          <div class="timeline-card__meta">
+            <span>
+              <i class="pi pi-calendar" aria-hidden="true"></i>
+              {{ exp.startDate | date: 'MMM yyyy' }} —
+              {{ exp.current ? 'Present' : (exp.endDate | date: 'MMM yyyy') }}
+            </span>
+            <span>
+              <i class="pi pi-map-marker" aria-hidden="true"></i>
+              {{ exp.location }}
+            </span>
+          </div>
+
+          @if (exp.current) {
+            <p-tag value="Current Role" severity="success" class="timeline-card__badge" />
+          }
+
+          <h4 class="timeline-card__section-title">Responsibilities</h4>
+          <ul class="timeline-card__list">
+            @for (item of exp.responsibilities; track item) {
+              <li>{{ item }}</li>
+            }
+          </ul>
+
+          <h4 class="timeline-card__section-title">Technologies</h4>
+          <div class="timeline-card__tech">
+            @for (tech of exp.technologies; track tech) {
+              <p-tag [value]="tech" severity="secondary" />
+            }
+          </div>
+        </article>
+      </ng-template>
+    </p-timeline>
+  </div>
+</section>

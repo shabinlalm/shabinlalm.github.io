@@ -1,0 +1,51 @@
+<app-page-hero
+  eyebrow="Credentials"
+  title="Certifications"
+  subtitle="Industry-recognized certifications validating technical expertise."
+/>
+
+<section class="section">
+  <div class="container">
+    <div class="cert-grid">
+      @for (cert of portfolioService.certifications(); track cert.id; let i = $index) {
+        <article
+          class="cert-card card-surface"
+          appScrollAnimate
+          animation="fade-up"
+          [delay]="(i % 3) * 80"
+        >
+          <div class="cert-card__badge">
+            @if (cert.badgeUrl) {
+              <img [src]="cert.badgeUrl" [alt]="cert.name + ' badge'" loading="lazy" />
+            } @else {
+              <i class="pi pi-verified" aria-hidden="true"></i>
+            }
+          </div>
+          <div class="cert-card__body">
+            <h3 class="cert-card__name">{{ cert.name }}</h3>
+            <p class="cert-card__provider">
+              <i class="pi pi-building" aria-hidden="true"></i>
+              {{ cert.provider }}
+            </p>
+            <p class="cert-card__date">
+              <i class="pi pi-calendar" aria-hidden="true"></i>
+              Issued {{ cert.issueDate | date: 'MMMM yyyy' }}
+            </p>
+            @if (cert.credentialUrl) {
+              <a
+                pButton
+                [href]="cert.credentialUrl"
+                target="_blank"
+                rel="noopener noreferrer"
+                label="View Credential"
+                icon="pi pi-external-link"
+                [text]="true"
+                size="small"
+              ></a>
+            }
+          </div>
+        </article>
+      }
+    </div>
+  </div>
+</section>

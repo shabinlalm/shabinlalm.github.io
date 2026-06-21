@@ -1,0 +1,100 @@
+@use '../../../styles/variables' as *;
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: $spacing-2xl;
+  align-items: start;
+
+  @media (max-width: $breakpoint-lg) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.contact-info {
+  &__title {
+    font-size: 1.5rem;
+    margin-bottom: $spacing-md;
+  }
+
+  &__desc {
+    margin-bottom: $spacing-xl;
+    line-height: 1.7;
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-lg;
+
+    li {
+      display: flex;
+      gap: $spacing-md;
+      align-items: flex-start;
+    }
+
+    a {
+      font-weight: 500;
+    }
+  }
+
+  &__icon {
+    flex-shrink: 0;
+    width: 2.75rem;
+    height: 2.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--accent-gradient);
+    border-radius: $radius-md;
+    color: white;
+    font-size: 1.125rem;
+  }
+
+  &__label {
+    display: block;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-muted);
+    margin-bottom: $spacing-xs;
+  }
+}
+
+.contact-form {
+  padding: $spacing-2xl;
+
+  &__title {
+    font-size: 1.25rem;
+    margin-bottom: $spacing-xl;
+  }
+}
+
+.form-field {
+  margin-bottom: $spacing-lg;
+
+  label {
+    display: block;
+    font-weight: 600;
+    font-size: 0.875rem;
+    margin-bottom: $spacing-sm;
+    color: var(--text-primary);
+
+    span {
+      color: var(--danger);
+    }
+  }
+
+  input,
+  textarea {
+    width: 100%;
+  }
+}
+
+.form-error {
+  display: block;
+  color: var(--danger);
+  font-size: 0.8125rem;
+  margin-top: $spacing-xs;
+}

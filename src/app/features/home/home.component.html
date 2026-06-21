@@ -1,0 +1,130 @@
+@if (portfolioService.profile(); as profile) {
+  <section class="hero" aria-labelledby="hero-title">
+    <div class="hero__bg" aria-hidden="true"></div>
+    <div class="container hero__inner">
+      <div class="hero__content" appScrollAnimate animation="fade-up">
+        <p class="hero__greeting">Hello, I'm</p>
+        <h1 class="hero__title" id="hero-title">{{ profile.name }}</h1>
+        <p class="hero__headline">{{ profile.headline }}</p>
+        <p class="hero__intro">{{ profile.introduction }}</p>
+
+        <div class="hero__actions btn-group">
+          <a
+            pButton
+            [href]="profile.resumeUrl"
+            download
+            class="hero__btn"
+            label="Download Resume"
+            icon="pi pi-download"
+            severity="primary"
+          ></a>
+          <a
+            pButton
+            routerLink="/contact"
+            class="hero__btn"
+            label="Contact Me"
+            icon="pi pi-envelope"
+            severity="secondary"
+            [outlined]="true"
+          ></a>
+        </div>
+
+        <app-social-links [links]="profile.socialLinks" />
+      </div>
+
+      <div class="hero__visual" appScrollAnimate animation="fade-in" [delay]="200">
+        <div class="hero__avatar-wrapper animate-float">
+          <img
+            class="hero__avatar"
+            [src]="profile.avatarUrl"
+            [alt]="profile.name + ' profile photo'"
+            width="320"
+            height="320"
+            loading="eager"
+          />
+          <div class="hero__avatar-ring animate-pulse-glow" aria-hidden="true"></div>
+        </div>
+        <div class="hero__badge">
+          <i class="pi pi-check-circle" aria-hidden="true"></i>
+          <span>{{ profile.title }}</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" aria-labelledby="featured-projects">
+    <div class="container">
+      <app-section-header
+        eyebrow="Portfolio"
+        title="Featured Projects"
+        description="A selection of recent work showcasing technical expertise and business impact."
+        titleId="featured-projects"
+      />
+
+      <div class="featured-grid">
+        @for (project of portfolioService.projects() | slice: 0 : 2; track project.id; let i = $index) {
+          <article
+            class="featured-card card-surface"
+            appScrollAnimate
+            animation="fade-up"
+            [delay]="i * 100"
+          >
+            <div class="featured-card__image">
+              <img [src]="project.thumbnail" [alt]="project.title + ' preview'" loading="lazy" />
+            </div>
+            <div class="featured-card__body">
+              <p-tag [value]="project.category" severity="info" />
+              <h3 class="featured-card__title">{{ project.title }}</h3>
+              <p class="featured-card__desc">{{ project.shortDescription }}</p>
+              <div class="featured-card__tech">
+                @for (tech of project.technologies | slice: 0 : 4; track tech) {
+                  <span class="tech-chip">{{ tech }}</span>
+                }
+              </div>
+              <a
+                pButton
+                routerLink="/projects"
+                label="View Details"
+                icon="pi pi-arrow-right"
+                iconPos="right"
+                [text]="true"
+              ></a>
+            </div>
+          </article>
+        }
+      </div>
+
+      <div class="section-cta" appScrollAnimate>
+        <a pButton routerLink="/projects" label="View All Projects" icon="pi pi-briefcase"></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="quick-stats">
+    <div class="container">
+      <div class="stats-grid">
+        <div class="stat-card card-surface" appScrollAnimate animation="fade-up" [delay]="0">
+          <span class="stat-card__value">{{ portfolioService.experience().length }}+</span>
+          <span class="stat-card__label">Years Experience</span>
+        </div>
+        <div class="stat-card card-surface" appScrollAnimate animation="fade-up" [delay]="100">
+          <span class="stat-card__value">{{ portfolioService.projects().length }}+</span>
+          <span class="stat-card__label">Projects Delivered</span>
+        </div>
+        <div class="stat-card card-surface" appScrollAnimate animation="fade-up" [delay]="200">
+          <span class="stat-card__value">{{ portfolioService.skills().length }}+</span>
+          <span class="stat-card__label">Technical Skills</span>
+        </div>
+        <div class="stat-card card-surface" appScrollAnimate animation="fade-up" [delay]="300">
+          <span class="stat-card__value">{{ portfolioService.certifications().length }}</span>
+          <span class="stat-card__label">Certifications</span>
+        </div>
+      </div>
+    </div>
+  </section>
+} @else {
+  <div class="loading-state container">
+    <i class="pi pi-spin pi-spinner" aria-hidden="true"></i>
+    <span>Loading portfolio...</span>
+  </div>
+}

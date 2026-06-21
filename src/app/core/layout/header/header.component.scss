@@ -1,0 +1,157 @@
+@use '../../../../styles/variables' as *;
+
+.header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  height: $header-height;
+  background: var(--header-bg);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border-subtle);
+  transition: background $transition-base;
+}
+
+.header__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  gap: $spacing-lg;
+}
+
+.header__brand {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  color: var(--text-primary);
+  text-decoration: none;
+  flex-shrink: 0;
+
+  &:hover {
+    color: var(--text-primary);
+  }
+}
+
+.header__brand-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: $radius-md;
+  background: var(--accent-gradient);
+  color: white;
+  font-weight: 800;
+  font-size: 0.875rem;
+}
+
+.header__brand-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+
+  @media (max-width: $breakpoint-sm) {
+    display: none;
+  }
+}
+
+.header__brand-name {
+  font-weight: 700;
+  font-size: 0.9375rem;
+}
+
+.header__brand-role {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.header__nav {
+  display: none;
+  align-items: center;
+  gap: $spacing-xs;
+
+  @include respond-to(lg) {
+    display: flex;
+  }
+}
+
+.header__nav-link {
+  padding: $spacing-sm $spacing-md;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-secondary);
+  border-radius: $radius-sm;
+  transition: all $transition-fast;
+  text-decoration: none;
+
+  &:hover {
+    color: var(--accent-primary);
+    background: var(--bg-tertiary);
+  }
+
+  &--active {
+    color: var(--accent-primary);
+    background: var(--bg-tertiary);
+    font-weight: 600;
+  }
+}
+
+.header__actions {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.header__menu-btn {
+  @include respond-to(lg) {
+    display: none !important;
+  }
+}
+
+.mobile-nav {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xs;
+  padding: $spacing-sm 0;
+}
+
+.mobile-nav__link {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-md;
+  border-radius: $radius-md;
+  color: var(--text-secondary);
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: all $transition-fast;
+
+  i {
+    font-size: 1.125rem;
+    width: 1.5rem;
+    text-align: center;
+    color: var(--accent-primary);
+  }
+
+  &:hover,
+  &--active {
+    color: var(--accent-primary);
+    background: var(--bg-tertiary);
+  }
+}
+
+// Drawer is appended to body — global styles required
+.mobile-drawer.p-drawer {
+  width: min(20rem, 88vw) !important;
+}
+
+.mobile-drawer .p-drawer-header {
+  padding: $spacing-lg;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.mobile-drawer .p-drawer-content {
+  padding: $spacing-md $spacing-lg $spacing-xl;
+  background: var(--surface-card);
+}

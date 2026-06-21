@@ -1,0 +1,161 @@
+<app-page-hero
+  eyebrow="Work"
+  title="Projects"
+  subtitle="Explore my portfolio of enterprise applications and innovative solutions."
+/>
+
+<section class="section">
+  <div class="container">
+    <div class="projects-toolbar card-surface" appScrollAnimate>
+      <p-iconfield class="projects-toolbar__search">
+        <p-inputicon class="pi pi-search" />
+        <input
+          pInputText
+          type="search"
+          placeholder="Search projects or technologies..."
+          [ngModel]="searchQuery()"
+          (ngModelChange)="onSearchChange($event)"
+          aria-label="Search projects"
+        />
+      </p-iconfield>
+
+      <p-select
+        [options]="categoryOptions()"
+        [ngModel]="selectedCategory()"
+        (ngModelChange)="onCategoryChange($event)"
+        optionLabel="label"
+        optionValue="value"
+        placeholder="Category"
+        ariaLabel="Filter by category"
+        class="projects-toolbar__filter"
+      />
+    </div>
+
+    @if (filteredProjects().length === 0) {
+      <div class="empty-state" appScrollAnimate>
+        <i class="pi pi-search" aria-hidden="true"></i>
+        <p>No projects match your search criteria.</p>
+      </div>
+    } @else {
+      <div class="projects-grid">
+        @for (project of filteredProjects(); track project.id; let i = $index) {
+          <article
+            class="project-card card-surface"
+            appScrollAnimate
+            animation="fade-up"
+            [delay]="(i % 3) * 80"
+          >
+            <button
+              type="button"
+              class="project-card__trigger"
+              (click)="openProject(project)"
+              [attr.aria-label]="'View details for ' + project.title"
+            >
+              <div class="project-card__image">
+                <img [src]="project.thumbnail" [alt]="project.title + ' thumbnail'" loading="lazy" />
+                @if (project.featured) {
+                  <span class="project-card__featured">Featured</span>
+                }
+              </div>
+              <div class="project-card__body">
+                <p-tag [value]="project.category" severity="info" />
+                <h3 class="project-card__title">{{ project.title }}</h3>
+                <p class="project-card__desc">{{ project.shortDescription }}</p>
+                <div class="project-card__tech">
+                  @for (tech of project.technologies.slice(0, 4); track tech) {
+                    <p-chip [label]="tech" />
+                  }
+                  @if (project.technologies.length > 4) {
+                    <span class="project-card__more">+{{ project.technologies.length - 4 }}</span>
+                  }
+                </div>
+              </div>
+            </button>
+          </article>
+        }
+      </div>
+    }
+  </div>
+</section>
+
+<p-dialog
+  [visible]="dialogVisible()"
+  (visibleChange)="dialogVisible.set($event)"
+  [modal]="true"
+  [draggable]="false"
+  [resizable]="false"
+  [style]="{ width: '90vw', maxWidth: '900px' }"
+  [header]="selectedProject()?.title ?? 'Project Details'"
+  (onHide)="closeDialog()"
+>
+  @if (selectedProject(); as project) {
+    <div class="project-detail">
+      @if (project.screenshots.length > 0) {
+        <p-galleria
+          [value]="project.screenshots"
+          [activeIndex]="galleriaActiveIndex()"
+          (activeIndexChange)="galleriaActiveIndex.set($event)"
+          [numVisible]="5"
+          [circular]="true"
+          [showItemNavigators]="true"
+          [showThumbnails]="project.screenshots.length > 1"
+          [containerStyle]="{ 'max-width': '100%' }"
+        >
+          <ng-template #item let-item>
+            <img [src]="item" [alt]="project.title + ' screenshot'" class="galleria-image" />
+          </ng-template>
+          <ng-template #thumbnail let-item>
+            <img [src]="item" [alt]="project.title + ' thumbnail'" class="galleria-thumbnail" />
+          </ng-template>
+        </p-galleria>
+      }
+
+      <p class="project-detail__description">{{ project.description }}</p>
+
+      <div class="project-detail__section">
+        <h4>Technologies Used</h4>
+        <div class="project-detail__chips">
+          @for (tech of project.technologies; track tech) {
+            <p-chip [label]="tech" />
+          }
+        </div>
+      </div>
+
+      <div class="project-detail__section">
+        <h4>Responsibilities</h4>
+        <ul>
+          @for (item of project.responsibilities; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </div>
+
+      <div class="project-detail__section">
+        <h4>Challenges Solved</h4>
+        <ul>
+          @for (item of project.challenges; track item) {
+            <li>{{ item }}</li>
+          }
+        </ul>
+      </div>
+
+      <div class="project-detail__links">
+        @if (project.liveUrl) {
+          <a pButton [href]="project.liveUrl" target="_blank" rel="noopener noreferrer" label="Live Demo" icon="pi pi-external-link"></a>
+        }
+        @if (project.repoUrl) {
+          <a
+            pButton
+            [href]="project.repoUrl"
+            target="_blank"
+            rel="noopener noreferrer"
+            label="View Code"
+            icon="pi pi-github"
+            severity="secondary"
+            [outlined]="true"
+          ></a>
+        }
+      </div>
+    </div>
+  }
+</p-dialog>

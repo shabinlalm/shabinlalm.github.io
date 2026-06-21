@@ -1,0 +1,23 @@
+<footer class="footer" role="contentinfo">
+  <div class="container footer__inner">
+    <div class="footer__brand">
+      <a routerLink="/" class="footer__logo">Jordan Mitchell</a>
+      <p class="footer__tagline">Building exceptional software experiences.</p>
+      @if (portfolioService.profile(); as profile) {
+        <app-social-links [links]="profile.socialLinks" ariaLabel="Footer social links" />
+      }
+    </div>
+
+    <nav class="footer__nav" aria-label="Footer navigation">
+      <a routerLink="/about">About</a>
+      <a routerLink="/projects">Projects</a>
+      <a routerLink="/experience">Experience</a>
+      <a routerLink="/contact">Contact</a>
+    </nav>
+  </div>
+
+  <div class="footer__bottom container">
+    <p>&copy; {{ currentYear }} Jordan Mitchell. All rights reserved.</p>
+    <p class="footer__built">Built with Angular & PrimeNG</p>
+  </div>
+</footer>

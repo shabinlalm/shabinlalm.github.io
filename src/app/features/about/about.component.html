@@ -1,0 +1,84 @@
+<app-page-hero
+  eyebrow="About Me"
+  title="Professional Summary"
+  subtitle="Passionate about building software that makes a difference."
+/>
+
+@if (portfolioService.profile(); as profile) {
+  <section class="section">
+    <div class="container container--narrow">
+      <div class="about-summary card-surface" appScrollAnimate>
+        <p class="about-summary__text">{{ profile.summary }}</p>
+        <div class="about-summary__meta">
+          <div class="meta-item">
+            <i class="pi pi-map-marker" aria-hidden="true"></i>
+            <span>{{ profile.location }}</span>
+          </div>
+          <div class="meta-item">
+            <i class="pi pi-envelope" aria-hidden="true"></i>
+            <a [href]="'mailto:' + profile.email">{{ profile.email }}</a>
+          </div>
+          <div class="meta-item">
+            <i class="pi pi-phone" aria-hidden="true"></i>
+            <a [href]="'tel:' + profile.phone">{{ profile.phone }}</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section--alt" aria-labelledby="experience-overview">
+    <div class="container">
+      <app-section-header
+        eyebrow="Background"
+        title="Experience Overview"
+        description="A track record of delivering impactful solutions across enterprise and startup environments."
+        titleId="experience-overview"
+      />
+
+      <div class="experience-overview" appScrollAnimate>
+        @for (exp of portfolioService.experience(); track exp.id; let i = $index) {
+          <div class="exp-preview card-surface" appScrollAnimate animation="fade-up" [delay]="i * 80">
+            <div class="exp-preview__header">
+              <h3>{{ exp.role }}</h3>
+              <span class="exp-preview__company">{{ exp.company }}</span>
+            </div>
+            <p class="exp-preview__duration">
+              {{ exp.startDate | date: 'MMM yyyy' }} —
+              {{ exp.current ? 'Present' : (exp.endDate | date: 'MMM yyyy') }}
+            </p>
+            <p class="exp-preview__location">
+              <i class="pi pi-map-marker" aria-hidden="true"></i> {{ exp.location }}
+            </p>
+          </div>
+        }
+      </div>
+
+      <div class="section-cta" appScrollAnimate>
+        <a pButton routerLink="/experience" label="Full Experience" icon="pi pi-history" [outlined]="true"></a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" aria-labelledby="career-highlights">
+    <div class="container">
+      <app-section-header
+        eyebrow="Achievements"
+        title="Career Highlights"
+        description="Key milestones and accomplishments throughout my professional journey."
+        titleId="career-highlights"
+      />
+
+      <ul class="highlights-list">
+        @for (highlight of profile.careerHighlights; track highlight; let i = $index) {
+          <li class="highlight-item card-surface" appScrollAnimate animation="slide-left" [delay]="i * 60">
+            <span class="highlight-item__icon" aria-hidden="true">
+              <i class="pi pi-star-fill"></i>
+            </span>
+            <span>{{ highlight }}</span>
+          </li>
+        }
+      </ul>
+    </div>
+  </section>
+}

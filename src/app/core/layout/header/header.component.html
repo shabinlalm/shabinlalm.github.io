@@ -1,0 +1,76 @@
+<header class="header" role="banner">
+  <div class="header__inner container">
+    <a routerLink="/" class="header__brand" aria-label="Jordan Mitchell - Home">
+      <span class="header__brand-icon" aria-hidden="true">JM</span>
+      <span class="header__brand-text">
+        <span class="header__brand-name">Jordan Mitchell</span>
+        <span class="header__brand-role">Software Engineer</span>
+      </span>
+    </a>
+
+    <nav class="header__nav" aria-label="Main navigation">
+      @for (item of navItems; track item.path) {
+        <a
+          class="header__nav-link"
+          [routerLink]="item.path"
+          routerLinkActive="header__nav-link--active"
+          [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+        >
+          {{ item.label }}
+        </a>
+      }
+    </nav>
+
+    <div class="header__actions">
+      <button
+        pButton
+        type="button"
+        class="header__theme-btn"
+        [icon]="themeService.theme() === 'dark' ? 'pi pi-sun' : 'pi pi-moon'"
+        [attr.aria-label]="themeService.theme() === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'"
+        (click)="toggleTheme()"
+        severity="secondary"
+        [text]="true"
+        [rounded]="true"
+      ></button>
+
+      <button
+        pButton
+        type="button"
+        class="header__menu-btn"
+        icon="pi pi-bars"
+        aria-label="Open navigation menu"
+        (click)="openMobileMenu()"
+        severity="secondary"
+        [text]="true"
+        [rounded]="true"
+      ></button>
+    </div>
+  </div>
+</header>
+
+<p-drawer
+  [visible]="mobileMenuOpen()"
+  (visibleChange)="mobileMenuOpen.set($event)"
+  position="right"
+  [modal]="true"
+  header="Navigation"
+  styleClass="mobile-drawer"
+  appendTo="body"
+  [blockScroll]="true"
+>
+  <nav class="mobile-nav" aria-label="Mobile navigation">
+    @for (item of navItems; track item.path) {
+      <a
+        class="mobile-nav__link"
+        [routerLink]="item.path"
+        routerLinkActive="mobile-nav__link--active"
+        [routerLinkActiveOptions]="{ exact: item.path === '/' }"
+        (click)="closeMobileMenu()"
+      >
+        <i [class]="item.icon" aria-hidden="true"></i>
+        {{ item.label }}
+      </a>
+    }
+  </nav>
+</p-drawer>
