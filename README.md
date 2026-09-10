@@ -1,4 +1,4 @@
-# Shabin Lal M. — Portfolio
+# Shabin Lal M — Portfolio
 
 Static engineering portfolio. No build step. Host the folder on IIS, Netlify, GitHub Pages, or any static server.
 
