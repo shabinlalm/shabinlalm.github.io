@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="SL">
+  <rect width="64" height="64" rx="12" fill="#0b0c0e"/>
+  <rect x="1.5" y="1.5" width="61" height="61" rx="11" fill="none" stroke="#7aa2f7" stroke-width="2"/>
+  <text x="32" y="42" text-anchor="middle" font-family="IBM Plex Sans, Segoe UI, sans-serif" font-size="22" font-weight="600" fill="#eceef2" letter-spacing="1">SL</text>
+</svg>

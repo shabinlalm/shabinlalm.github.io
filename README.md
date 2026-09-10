@@ -1,48 +1,79 @@
-# Applications Hub
+# Shabin Lal M. — Portfolio
 
-A premium static navigation landing page — no install, no build required.
+Static engineering portfolio. No build step. Host the folder on IIS, Netlify, GitHub Pages, or any static server.
 
-Uses **Bootstrap 5**, **Bootstrap Icons**, and **AOS** animations via CDN.
+## Run locally
 
-## Run
+Serve the folder (do not rely on `file://` if you want resume HEAD checks to work):
 
-**Double-click `index.html`** in your browser (internet required for CDN fonts/icons on first load).
+```bash
+# Python
+python -m http.server 8080
 
-## Project structure
-
-```
-├── index.html       # Main page
-├── css/styles.css   # Custom premium theme
-├── js/main.js       # App logic + particle canvas
-├── data/apps.js     # Your app links (edit this)
-└── web.config       # IIS deployment (optional)
+# or Node
+npx --yes serve -p 8080
 ```
 
-## Customize
+Open `http://localhost:8080`.
 
-Edit **`data/apps.js`** — change the JSON object after `window.APP_CONFIG =`.
+## What to edit
 
-| Field | Description |
-|-------|-------------|
-| `name` | App display name |
-| `description` | Short description |
-| `url` | Link (subdomain or full URL) |
-| `icon` | `code`, `article`, `dashboard`, `api` |
-| `status` | `live` (clickable) or `coming-soon` |
-| `accent` | Card color (hex) |
-| `tags` | Optional labels |
+| You want to change | File |
+| --- | --- |
+| Name, email, phone, LinkedIn, GitHub, resume path, hero/about copy | `data/site.js` |
+| Jobs / timeline | `data/experience.js` |
+| Projects, case studies, screenshot paths, PDFs | `data/projects.js` |
+| Skills and expertise tiles | `data/skills.js` |
+| Customer names and logos | `data/clients.js` |
+| Visual design | `css/styles.css` |
+| Page structure | `index.html` |
 
-Save the file and refresh the browser.
+Do not invent LinkedIn/GitHub URLs. Leave them as empty strings until you have the real profile.
 
-## Deploy
+## Adding a project
 
-Copy all files to any static host (IIS, Netlify, GitHub Pages, etc.). No build step needed.
+1. Copy an object in `data/projects.js`.
+2. Give it a unique `id` (`kebab-case`).
+3. Create `public/projects/<id>/`.
+4. Drop `cover.jpg` and screenshots there.
+5. Point `cover` and `screenshots` at those files.
 
-For IIS, `web.config` is included for JSON MIME types.
+Example screenshot entry:
 
-## Branches
+```js
+screenshots: [
+  { src: "public/projects/recipe-reporting/01.jpg", caption: "Recipe editor" }
+]
+```
 
-| Branch | Purpose |
-|--------|---------|
-| `main` | This navigation hub |
-| Other branches | Individual apps on subdomains |
+Example document entry:
+
+```js
+documents: [
+  { title: "Sample report", description: "Public excerpt", src: "public/documents/sample.pdf" }
+]
+```
+
+Until files exist, the UI shows placeholders. That is intentional.
+
+## Resume PDF
+
+Place the file at:
+
+```
+public/resume/Shabin-Lal-Resume.pdf
+```
+
+If it is missing, Download/View stay disabled and a hint is shown in the Resume section.
+
+## Logos
+
+Put files in `public/clients/` and set `logo` in `data/clients.js`. Do not hotlink random internet logos.
+
+## Theme
+
+Dark is the default. The toggle stores `localStorage.theme` as `dark` or `light`.
+
+## Deploy (IIS)
+
+Copy the site root (including `web.config`) to the site folder. `web.config` maps JSON/SVG/PDF MIME types and sends `X-Content-Type-Options: nosniff`.

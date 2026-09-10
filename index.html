@@ -1,247 +1,502 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="dark">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Central navigation hub for hosted applications and subdomains." />
-    <title>Applications Hub</title>
+    <title>Shabin Lal M. | Software Engineer | Angular • Node.js • .NET Core</title>
+    <meta
+      name="description"
+      content="Portfolio of Shabin Lal M., a software engineer working on enterprise applications, industrial automation, Level 2 rolling mill systems, APIs, databases and system integrations."
+    />
+    <meta name="author" content="Shabin Lal M." />
+    <meta name="robots" content="index, follow" />
+    <!-- Set canonical to your live URL after hosting, e.g. https://your-domain.com/ -->
+
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Shabin Lal M. | Software Engineer | Angular • Node.js • .NET Core" />
+    <meta
+      property="og:description"
+      content="Portfolio of Shabin Lal M., a software engineer working on enterprise applications, industrial automation, Level 2 rolling mill systems, APIs, databases and system integrations."
+    />
+    <meta property="og:image" content="public/og-image.svg" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Shabin Lal M. | Software Engineer" />
+    <meta
+      name="twitter:description"
+      content="Enterprise applications, industrial automation, Level 2 rolling mill systems, APIs and integrations."
+    />
+
+    <meta name="theme-color" content="#0c1116" />
+    <link rel="icon" href="public/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="public/favicon.svg" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=Outfit:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=IBM+Plex+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="css/styles.css" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Shabin Lal M.",
+        "jobTitle": "Software Engineer",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "AIC CAPITANIO AUTOMATION SYSTEMS INDIA PVT LTD"
+        },
+        "description": "Software engineer working on enterprise applications, industrial automation, Level 2 rolling mill systems, APIs, databases and system integrations.",
+        "email": "mailto:shabinlal.m96@gmail.com",
+        "telephone": "+91-7356294296",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Bangalore",
+          "addressCountry": "IN"
+        },
+        "knowsAbout": [
+          "Angular",
+          "Node.js",
+          ".NET Core",
+          "SQL Server",
+          "Industrial automation",
+          "System integration"
+        ]
+      }
+    </script>
   </head>
   <body>
-    <div class="preloader" id="preloader" aria-hidden="true">
-      <div class="preloader__ring"></div>
-      <span class="preloader__text" id="preloader-text">Loading</span>
-    </div>
+    <a class="skip-link" href="#main">Skip to content</a>
 
-    <a class="visually-hidden-focusable skip-link" href="#main">Skip to content</a>
-
-    <div class="scroll-progress" id="scroll-progress" aria-hidden="true"></div>
-    <div class="cursor-glow" id="cursor-glow" aria-hidden="true"></div>
-    <div class="cursor-dot" id="cursor-dot" aria-hidden="true"></div>
-
-    <canvas id="particle-canvas" aria-hidden="true"></canvas>
-
-    <div class="dot-grid" aria-hidden="true"></div>
-
-    <div class="aurora" aria-hidden="true">
-      <div class="aurora__band aurora__band--1"></div>
-      <div class="aurora__band aurora__band--2"></div>
-      <div class="aurora__band aurora__band--3"></div>
-    </div>
-
-    <div class="mesh-bg" aria-hidden="true">
-      <div class="mesh-blob mesh-blob--1 js-parallax" data-speed="0.15"></div>
-      <div class="mesh-blob mesh-blob--2 js-parallax" data-speed="-0.1"></div>
-      <div class="mesh-blob mesh-blob--3 js-parallax" data-speed="0.08"></div>
-      <div class="mesh-blob mesh-blob--4 js-parallax" data-speed="-0.12"></div>
-    </div>
-
-    <div class="floating-shapes" aria-hidden="true">
-      <span class="shape shape--1"></span>
-      <span class="shape shape--2"></span>
-      <span class="shape shape--3"></span>
-      <span class="shape shape--4"></span>
-      <span class="shape shape--5"></span>
-      <span class="shape shape--6"></span>
-    </div>
-
-    <nav class="navbar fixed-top site-nav" id="site-nav">
-      <div class="container">
-        <a class="navbar-brand" href="#">
-          <span class="brand-mark" id="brand-initials">S</span>
-          <span class="brand-text" id="brand-name">Applications Hub</span>
+    <header class="site-header" id="site-header">
+      <div class="wrap header-inner">
+        <a class="brand" href="#top" aria-label="Shabin Lal M. — home">
+          <span class="brand-mark" aria-hidden="true">SL</span>
+          <span class="brand-text">
+            <span class="brand-name">Shabin Lal M.</span>
+            <span class="brand-role">Software Engineer</span>
+          </span>
         </a>
-        <a class="btn btn-nav magnetic" href="#apps">
-          <span class="btn-nav__shine" aria-hidden="true"></span>
-          <span class="btn-nav__text">Explore Apps</span>
-          <i class="bi bi-arrow-right"></i>
-        </a>
+
+        <nav class="nav-desktop" aria-label="Primary">
+          <a href="#work">Work</a>
+          <a href="#experience">Experience</a>
+          <a href="#automation">Automation</a>
+          <a href="#expertise">Expertise</a>
+          <a href="#about">About</a>
+          <a href="#contact">Contact</a>
+        </nav>
+
+        <div class="header-actions">
+          <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Switch to light theme">
+            <span class="theme-toggle-icon" aria-hidden="true"></span>
+          </button>
+          <a class="btn btn-sm btn-solid" href="#resume">Resume</a>
+          <button type="button" class="nav-toggle" id="nav-toggle" aria-expanded="false" aria-controls="nav-mobile" aria-label="Open menu">
+            <span></span><span></span>
+          </button>
+        </div>
       </div>
-    </nav>
+
+      <div class="nav-mobile" id="nav-mobile" hidden>
+        <nav aria-label="Mobile">
+          <a href="#work">Work</a>
+          <a href="#experience">Experience</a>
+          <a href="#automation">Automation</a>
+          <a href="#expertise">Expertise</a>
+          <a href="#about">About</a>
+          <a href="#resume">Resume</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
 
     <main id="main">
-      <section class="hero">
-        <div class="container">
-          <div class="row align-items-center min-vh-100 py-5">
-            <div class="col-lg-6 hero-content">
-              <div class="hero-chip js-hero-item">
-                <span class="hero-chip__dot"></span>
-                <span>Software Engineer · Portfolio Hub</span>
-              </div>
+      <section class="hero" id="top">
+        <div class="wrap">
+          <div class="hero-identity">
+            <p class="hero-eyebrow">
+              <span class="status-dot" aria-hidden="true"></span>
+              Software Engineer · Bangalore
+            </p>
+            <h1 class="hero-name">Shabin Lal M.</h1>
+            <p class="hero-role">Software Engineer · Level 2 Engineer</p>
+            <p class="hero-company">AIC CAPITANIO AUTOMATION SYSTEMS INDIA PVT LTD</p>
+            <p class="hero-place">Bangalore · from Calicut, Kerala</p>
+          </div>
 
-              <p class="hero-greeting js-hero-item">
-                <span class="hero-greeting__wave">👋</span> Hello, I'm
-              </p>
-
-              <h1 class="hero-name" id="hero-name-wrap">
-                <span class="hero-name__text" id="hero-name">Shabin</span>
-              </h1>
-
-              <p class="hero-tagline js-hero-item">
-                <span id="hero-tagline">I build</span>
-                <span class="hero-tagline__rotate" id="typed-words">amazing apps</span>
-                <span class="hero-tagline__cursor" aria-hidden="true">|</span>
-              </p>
-
-              <p class="hero-desc js-hero-item" id="hero-desc">
-                A central gateway to all hosted applications and subdomains.
-              </p>
-
-              <div class="hero-pills js-hero-item" id="hero-pills" aria-hidden="true">
-                <span>Angular</span><span>.NET</span><span>Azure</span><span>TypeScript</span>
-              </div>
-
-              <div class="hero-btns js-hero-item">
-                <a href="#apps" class="btn btn-hero-primary magnetic">
-                  <span class="btn-hero-primary__ripple" aria-hidden="true"></span>
-                  <span>Launch Apps</span>
-                  <i class="bi bi-rocket-takeoff-fill"></i>
-                </a>
-                <a href="#footer" class="btn btn-hero-ghost magnetic">
-                  <span>Get in Touch</span>
-                  <i class="bi bi-send-fill"></i>
-                </a>
-              </div>
-
-              <div class="hero-stats js-hero-item">
-                <div class="hero-stat">
-                  <span class="hero-stat__num" id="stat-apps">0</span>
-                  <span class="hero-stat__lbl">Projects</span>
-                </div>
-                <div class="hero-stat__divider"></div>
-                <div class="hero-stat">
-                  <span class="hero-stat__num" id="stat-live">0</span>
-                  <span class="hero-stat__lbl">Live</span>
-                </div>
-                <div class="hero-stat__divider"></div>
-                <div class="hero-stat">
-                  <span class="hero-stat__num" id="stat-soon">0</span>
-                  <span class="hero-stat__lbl">Coming</span>
-                </div>
-              </div>
+          <div class="hero-grid">
+          <div class="hero-inner">
+            <h2 class="hero-title">
+              Building enterprise and industrial automation systems.
+            </h2>
+            <p class="hero-sub">
+              Angular · Node.js · .NET Core · MSSQL · Industrial Automation · System Integration
+            </p>
+            <p class="hero-lead">
+              I build web applications, APIs, reporting systems and integrations for production
+              industrial and enterprise environments.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-solid" href="#work">View Projects</a>
+              <a class="btn btn-ghost" href="public/resume/Shabin-Lal-Resume.pdf" id="hero-resume" data-resume>Download Resume</a>
+              <a class="btn btn-ghost" href="#contact">Contact Me</a>
             </div>
+            <a class="hero-scroll" href="#about">Explore my engineering journey ↓</a>
+          </div>
 
-            <div class="col-lg-6 d-none d-lg-block">
-              <div class="hero-visual js-hero-visual" id="hero-visual">
-                <div class="code-stack">
-                  <div class="code-window code-window--back">
-                    <div class="code-window__bar">
-                      <span></span><span></span><span></span>
-                    </div>
-                    <div class="code-window__body">
-                      <code><span class="tok-kw">const</span> <span class="tok-var">hub</span> = {<br>&nbsp;&nbsp;apps: <span class="tok-num">4</span>,<br>&nbsp;&nbsp;live: <span class="tok-str">'portfolio'</span><br>};</code>
-                    </div>
-                  </div>
-                  <div class="code-window code-window--mid">
-                    <div class="code-window__bar">
-                      <span></span><span></span><span></span>
-                    </div>
-                    <div class="code-window__body">
-                      <code><span class="tok-kw">export</span> <span class="tok-kw">class</span> <span class="tok-fn">AppHub</span> {<br>&nbsp;&nbsp;<span class="tok-fn">launch</span>() { ... }<br>}</code>
-                    </div>
-                  </div>
-                  <div class="code-window code-window--front">
-                    <div class="code-window__bar">
-                      <span></span><span></span><span></span>
-                      <em>hub.config.ts</em>
-                    </div>
-                    <div class="code-window__body">
-                      <code><span class="tok-cmt">// Your apps, one click away</span><br><span class="tok-kw">await</span> <span class="tok-fn">navigate</span>(<span class="tok-str">'#apps'</span>);</code>
-                    </div>
-                  </div>
-                </div>
-                <div class="orbit-icons" aria-hidden="true">
-                  <div class="orbit-icon orbit-icon--1"><i class="bi bi-lightning-charge-fill"></i></div>
-                  <div class="orbit-icon orbit-icon--2"><i class="bi bi-stars"></i></div>
-                  <div class="orbit-icon orbit-icon--3"><i class="bi bi-globe2"></i></div>
-                  <div class="orbit-icon orbit-icon--4"><i class="bi bi-cpu-fill"></i></div>
-                </div>
-                <div class="visual-glow" aria-hidden="true"></div>
-              </div>
-            </div>
+          <aside class="hero-panel" aria-label="Current focus">
+            <header class="hero-panel-top">
+              <span>Current work</span>
+              <span class="live">Bangalore</span>
+            </header>
+            <p class="hero-panel-title">Level 2 automation for rolling mills</p>
+            <p class="hero-panel-org">AIC CAPITANIO AUTOMATION SYSTEMS INDIA PVT LTD</p>
+            <ul class="hero-spec">
+              <li><span>Stack</span> Angular · Node.js · .NET Core · SQL Server</li>
+              <li><span>Integrations</span> SAP · MES / QMOs · Kocks</li>
+              <li><span>Since</span> Professional software work from 2016</li>
+            </ul>
+            <svg class="hero-schematic" viewBox="0 0 360 120" role="img" aria-label="Conceptual flow: mill to Level 2 to enterprise systems">
+              <rect x="8" y="38" width="78" height="44" rx="6" fill="none" stroke="currentColor" stroke-width="1.2"/>
+              <text x="47" y="64" text-anchor="middle" font-size="11">Mill</text>
+              <path d="M86 60 H118" stroke="currentColor" stroke-width="1.2" marker-end="url(#arr)"/>
+              <rect x="118" y="28" width="124" height="64" rx="6" fill="none" stroke="currentColor" stroke-width="1.4"/>
+              <text x="180" y="56" text-anchor="middle" font-size="11">Level 2 software</text>
+              <text x="180" y="74" text-anchor="middle" font-size="9" opacity="0.7">Apps · APIs · SQL</text>
+              <path d="M242 60 H274" stroke="currentColor" stroke-width="1.2"/>
+              <rect x="274" y="14" width="78" height="36" rx="6" fill="none" stroke="currentColor" stroke-width="1.2"/>
+              <text x="313" y="36" text-anchor="middle" font-size="10">MES / SAP</text>
+              <rect x="274" y="70" width="78" height="36" rx="6" fill="none" stroke="currentColor" stroke-width="1.2"/>
+              <text x="313" y="92" text-anchor="middle" font-size="10">Reports</text>
+              <defs>
+                <marker id="arr" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto">
+                  <path d="M0 0 L6 3 L0 6" fill="none" stroke="currentColor"/>
+                </marker>
+              </defs>
+            </svg>
+          </aside>
           </div>
         </div>
-
-        <a href="#apps" class="scroll-indicator" aria-label="Scroll down">
-          <span class="scroll-indicator__wheel"></span>
-          <span class="scroll-indicator__label">Scroll</span>
-        </a>
       </section>
 
-      <div class="marquee-section" aria-hidden="true">
-        <div class="marquee-wrap">
-          <div class="marquee marquee--fwd">
-            <div class="marquee__track" id="marquee-track">
-              <span>Angular</span><span>•</span><span>TypeScript</span><span>•</span><span>.NET</span><span>•</span>
-              <span>Azure</span><span>•</span><span>Full Stack</span><span>•</span><span>Cloud</span><span>•</span>
-              <span>Angular</span><span>•</span><span>TypeScript</span><span>•</span><span>.NET</span><span>•</span>
-              <span>Azure</span><span>•</span><span>Full Stack</span><span>•</span><span>Cloud</span><span>•</span>
+      <section class="section about" id="about">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="kicker"><span>01</span> About</p>
+            <h2>Production software for plants, operators, and the systems around them.</h2>
+          </div>
+          <div class="about-grid">
+            <div class="about-copy">
+              <p>
+                I build web applications, APIs, and SQL Server systems that operations teams actually run —
+                including Level 2 software for rolling mills, plus the interfaces that connect plant data to
+                MES, SAP, and mill-specific systems.
+              </p>
+              <p>
+                Before this I worked on HMS (Hospital Management System) platforms and business applications
+                using AngularJS, VB.NET, and ASP.NET MVC. The stack changed; the work did not: understand the
+                process, model the data, ship software people depend on.
+              </p>
             </div>
+            <aside class="about-meta" aria-label="Profile facts">
+              <dl>
+                <div>
+                  <dt>Role</dt>
+                  <dd>Level 2 Engineer / Software Engineer</dd>
+                </div>
+                <div>
+                  <dt>Company</dt>
+                  <dd>AIC CAPITANIO AUTOMATION SYSTEMS INDIA PVT LTD</dd>
+                </div>
+                <div>
+                  <dt>Domain</dt>
+                  <dd>Rolling mill Level 2 automation</dd>
+                </div>
+                <div>
+                  <dt>Based</dt>
+                  <dd>Bangalore · from Calicut, Kerala</dd>
+                </div>
+                <div>
+                  <dt>Building software since</dt>
+                  <dd>2016</dd>
+                </div>
+              </dl>
+            </aside>
           </div>
         </div>
-        <div class="marquee-wrap marquee-wrap--reverse">
-          <div class="marquee marquee--rev">
-            <div class="marquee__track">
-              <span>PrimeNG</span><span>◆</span><span>REST APIs</span><span>◆</span><span>SQL Server</span><span>◆</span>
-              <span>DevOps</span><span>◆</span><span>Clean Architecture</span><span>◆</span><span>Microservices</span><span>◆</span>
-              <span>PrimeNG</span><span>◆</span><span>REST APIs</span><span>◆</span><span>SQL Server</span><span>◆</span>
-              <span>DevOps</span><span>◆</span><span>Clean Architecture</span><span>◆</span><span>Microservices</span><span>◆</span>
+      </section>
+
+      <section class="section experience" id="experience">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="kicker"><span>02</span> Experience</p>
+            <h2>Roles, in order. Project detail lives under Work.</h2>
+          </div>
+          <ol class="timeline" id="timeline"></ol>
+        </div>
+      </section>
+
+      <section class="section expertise" id="expertise">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="kicker"><span>03</span> Expertise</p>
+            <h2>What the work actually is.</h2>
+            <p class="section-lead">
+              Not a list of buzzwords — the kinds of systems I have been paid to design, build, and keep running.
+            </p>
+          </div>
+          <div class="expertise-grid" id="expertise-grid"></div>
+        </div>
+      </section>
+
+      <section class="section work" id="work">
+        <div class="wrap">
+          <div class="section-head section-head-row">
+            <div>
+              <p class="kicker"><span>04</span> Featured Projects</p>
+              <h2>Selected systems — mill software first, then earlier product work.</h2>
+              <p class="section-lead">
+                Cards stay short. Open a case study for role, features, and screenshots.
+              </p>
             </div>
           </div>
+          <div class="filter-bar" id="project-filters" aria-label="Filter projects"></div>
+          <div class="project-grid" id="project-grid"></div>
+          <div class="more-projects" id="more-projects"></div>
         </div>
-      </div>
+      </section>
 
-      <div class="section-divider js-reveal" aria-hidden="true">
-        <svg viewBox="0 0 1200 60" preserveAspectRatio="none">
-          <path class="section-divider__line" d="M0,30 Q300,0 600,30 T1200,30" fill="none" stroke-width="2" />
-        </svg>
-      </div>
-
-      <section id="apps" class="apps-section">
-        <div class="container">
-          <div class="section-intro js-reveal">
-            <span class="section-intro__tag">// destinations</span>
-            <h2 class="section-intro__title">
-              <span class="title-word">Pick</span>
-              <span class="title-word title-word--grad">an Application</span>
-            </h2>
-            <p class="section-intro__desc">Each project runs on its own subdomain — click to launch.</p>
+      <section class="section automation" id="automation">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="kicker"><span>05</span> Industrial Automation</p>
+            <h2>Engineering software for industrial automation.</h2>
+            <p class="section-lead">
+              Application software on the Level 2 layer — not PLC or Level 1 control. The diagram is the
+              shape of the work; individual projects are listed above.
+            </p>
           </div>
 
-          <div class="apps-bento" id="apps-grid" role="list">
-            <div class="col-12 text-center py-5" id="apps-loading">
-              <div class="loader" aria-label="Loading"></div>
+          <figure class="flow-diagram" aria-labelledby="flow-caption">
+            <figcaption id="flow-caption" class="visually-hidden">
+              Flow from rolling mill through Level 2 applications to MES, SAP and reports
+            </figcaption>
+            <div class="flow-stack">
+              <div class="flow-node flow-node-root">
+                <span class="flow-label">Plant</span>
+                <strong>Rolling Mill</strong>
+                <span class="flow-hint">Physical production line</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true">
+                <span></span>
+              </div>
+              <div class="flow-node flow-node-accent">
+                <span class="flow-label">Application layer</span>
+                <strong>Level 2 Automation</strong>
+                <span class="flow-hint">Web apps · APIs · SQL Server</span>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"><span></span></div>
+              <div class="flow-row" role="list">
+                <div class="flow-node" role="listitem"><strong>Recipes</strong></div>
+                <div class="flow-node" role="listitem"><strong>Production / Consumption</strong></div>
+                <div class="flow-node" role="listitem"><strong>Roll Management</strong></div>
+                <div class="flow-node" role="listitem"><strong>Reporting</strong></div>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"><span></span></div>
+              <div class="flow-row" role="list">
+                <div class="flow-node" role="listitem"><strong>MES / QMOs</strong></div>
+                <div class="flow-node" role="listitem"><strong>SAP</strong></div>
+                <div class="flow-node" role="listitem"><strong>Kocks</strong></div>
+              </div>
+              <div class="flow-arrow" aria-hidden="true"><span></span></div>
+              <div class="flow-node">
+                <span class="flow-label">Business</span>
+                <strong>Reports &amp; operational information</strong>
+                <span class="flow-hint">Used by operations and enterprise processes</span>
+              </div>
+            </div>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section integrations" id="integrations">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="kicker"><span>06</span> System Integrations</p>
+            <h2>Integration engineering</h2>
+            <p class="section-lead">
+              Conceptual technology view — not a claim that every listed technology is used in every project.
+              Real deployments combine subsets of these pieces.
+            </p>
+          </div>
+
+          <div class="integ-board" aria-hidden="false">
+            <div class="integ-col">
+              <article class="integ-card">
+                <span class="integ-k">Enterprise</span>
+                <h3>SAP</h3>
+                <p>Business system interface from the application / API layer.</p>
+              </article>
+              <article class="integ-card">
+                <span class="integ-k">Execution</span>
+                <h3>MES / QMOs</h3>
+                <p>Manufacturing execution exchange with Level 2 software.</p>
+              </article>
+              <article class="integ-card">
+                <span class="integ-k">Mill systems</span>
+                <h3>Kocks</h3>
+                <p>Specialized mill system integration on customer lines.</p>
+              </article>
+            </div>
+
+            <ol class="integ-spine">
+              <li><span>.NET Core API</span></li>
+              <li><span>Node.js services</span></li>
+              <li><span>RabbitMQ</span></li>
+              <li><span>REST APIs</span></li>
+              <li><span>Angular application</span></li>
+              <li><span>MSSQL / SQL Server</span></li>
+            </ol>
+
+            <aside class="integ-note">
+              <p>
+                Typical shape of the work: a browser application talking to APIs, a SQL Server database as the
+                system of record, and adapters toward SAP, MES, or mill-specific systems. Messaging (RabbitMQ)
+                appears where asynchronous exchange is required — not as a default in every solution.
+              </p>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section stack" id="stack">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="kicker"><span>07</span> Technology Stack</p>
+            <h2>Tools I actually use.</h2>
+            <p class="section-lead">
+              <span class="legend"><i class="lg lg-primary"></i> Primary</span>
+              <span class="legend"><i class="lg lg-exp"></i> Experienced</span>
+              <span class="legend"><i class="lg lg-work"></i> Working knowledge</span>
+            </p>
+          </div>
+          <div class="stack-groups" id="stack-groups"></div>
+          <div class="eng-list" id="eng-list"></div>
+        </div>
+      </section>
+
+      <section class="section journey" id="journey">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="kicker"><span>08</span> Career Journey</p>
+            <h2>How the stack moved.</h2>
+          </div>
+          <ol class="journey-line" id="journey-line"></ol>
+        </div>
+      </section>
+
+      <section class="section clients" id="clients">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="kicker"><span>09</span> Selected Customers &amp; Projects</p>
+            <h2>Organizations software was delivered for.</h2>
+            <p class="section-lead">
+              These are project customers — not employers. Drop logo files into
+              <code>public/clients/</code> and set the path in <code>data/clients.js</code>.
+            </p>
+          </div>
+          <div class="client-grid" id="client-grid"></div>
+        </div>
+      </section>
+
+      <section class="section resume" id="resume">
+        <div class="wrap resume-panel" id="resume-panel">
+          <div>
+            <p class="kicker"><span>10</span> Resume</p>
+            <h2>Curriculum vitae</h2>
+            <p>
+              A concise record of roles, stack, and selected systems. The public site does not include a home
+              address or date of birth.
+            </p>
+            <p class="resume-hint" id="resume-hint" hidden>
+              Add your PDF at <code>public/resume/Shabin-Lal-Resume.pdf</code> to enable download and in-browser view.
+            </p>
+            <div class="hero-actions">
+              <a class="btn btn-solid" id="resume-download" href="public/resume/Shabin-Lal-Resume.pdf" data-resume>Download Resume</a>
+              <a class="btn btn-ghost" id="resume-view" href="public/resume/Shabin-Lal-Resume.pdf" target="_blank" rel="noopener" data-resume>View Resume</a>
+            </div>
+          </div>
+          <ul class="resume-facts">
+            <li><span>Current</span> AIC CAPITANIO AUTOMATION SYSTEMS INDIA PVT LTD · Bangalore</li>
+            <li><span>Focus</span> Angular, Node.js, .NET Core, SQL Server</li>
+            <li><span>Domain</span> Level 2 rolling mill systems</li>
+            <li><span>Experience</span> Professional software work since 2016</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section contact" id="contact">
+        <div class="wrap">
+          <div class="section-head">
+            <p class="kicker"><span>11</span> Contact</p>
+            <h2>For roles in enterprise software, industrial systems, or integration.</h2>
+          </div>
+          <div class="contact-grid">
+            <a class="contact-card" href="mailto:shabinlal.m96@gmail.com">
+              <span>Email</span>
+              <strong>shabinlal.m96@gmail.com</strong>
+            </a>
+            <a class="contact-card" href="tel:+917356294296">
+              <span>Phone</span>
+              <strong>+91 73562 94296</strong>
+            </a>
+            <div class="contact-card">
+              <span>Location</span>
+              <strong>Bangalore · Calicut, Kerala</strong>
+            </div>
+            <div class="contact-card" id="linkedin-card">
+              <span>LinkedIn</span>
+              <strong data-placeholder>Add URL in data/site.js → linkedin</strong>
+            </div>
+            <div class="contact-card" id="github-card">
+              <span>GitHub</span>
+              <strong data-placeholder>Add URL in data/site.js → github</strong>
             </div>
           </div>
         </div>
       </section>
     </main>
 
-    <footer id="footer" class="site-footer">
-      <div class="footer-aurora" aria-hidden="true"></div>
-      <div class="container">
-        <div class="footer-inner js-reveal">
-          <div class="footer-inner__left">
-            <h3>Let's create something <em>extraordinary</em>.</h3>
-            <p>&copy; <span id="footer-year"></span> <span id="footer-name">Shabin</span></p>
-          </div>
-          <nav class="footer-social" id="social-links" aria-label="Social links"></nav>
-        </div>
+    <footer class="site-footer">
+      <div class="wrap footer-inner">
+        <p>© <span id="year"></span> Shabin Lal M. · Software Engineer</p>
+        <p class="footer-note">Enterprise applications · Industrial automation · System integration</p>
       </div>
     </footer>
 
-    <script src="data/apps.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js"></script>
-    <script src="js/main.js"></script>
+    <div class="case-root" id="case-root" hidden>
+      <article class="case-page" id="case-page" role="dialog" aria-modal="true" aria-labelledby="case-title" tabindex="-1"></article>
+    </div>
+
+    <div class="lightbox" id="lightbox" hidden>
+      <div class="lightbox-inner" role="dialog" aria-modal="true" aria-label="Screenshot preview">
+        <button type="button" class="lightbox-close" id="lightbox-close" aria-label="Close preview">Close</button>
+        <button type="button" class="lightbox-nav prev" id="lightbox-prev" aria-label="Previous image">‹</button>
+        <figure>
+          <img id="lightbox-img" alt="" />
+          <figcaption id="lightbox-cap"></figcaption>
+        </figure>
+        <button type="button" class="lightbox-nav next" id="lightbox-next" aria-label="Next image">›</button>
+      </div>
+    </div>
+
+    <script src="data/site.js"></script>
+    <script src="data/experience.js"></script>
+    <script src="data/skills.js"></script>
+    <script src="data/clients.js"></script>
+    <script src="data/projects.js"></script>
+    <script src="js/app.js"></script>
   </body>
 </html>
