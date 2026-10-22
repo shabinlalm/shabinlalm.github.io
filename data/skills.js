@@ -71,7 +71,7 @@ window.SKILLS = {
     "Database design and development",
     "System integration",
     "Enterprise applications",
-    "Industrial automation software",
+    "Industrial application software",
     "Reporting systems",
     "Workflow systems",
     "Third-party integrations",
@@ -80,22 +80,3 @@ window.SKILLS = {
     "Production / industrial systems",
   ],
 };
-
-window.EXPERTISE = [
-  {
-    title: "Industrial Level 2 software",
-    text: "Web applications that support rolling mill operations: recipes, production and consumption data, roll management, and operational reports.",
-  },
-  {
-    title: "APIs and databases",
-    text: "REST APIs on Node.js and .NET Core, with SQL Server as the system of record for transactional and reporting data.",
-  },
-  {
-    title: "System integration",
-    text: "Connecting Level 2 software to MES, SAP, and specialized mill systems so production data can move between plant and enterprise software.",
-  },
-  {
-    title: "Enterprise web applications",
-    text: "Angular front ends with .NET / Node backends — administration, workflows, HMS, and customer-specific operational tools.",
-  },
-];

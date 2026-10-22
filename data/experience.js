@@ -1,67 +1,78 @@
 /**
  * CAREER EXPERIENCE — add a new role by appending an object.
- * Keep descriptions limited to what you actually did. Do not invent metrics.
+ *
+ * Optional:
+ *   website  Official company URL (opens in a new tab). Leave "" if you do not have it.
+ *   logo     Path under public/companies/  e.g. "public/companies/aic.png"
  */
 window.EXPERIENCE = [
   {
     id: "aic",
     company: "AIC CAPITANIO AUTOMATION SYSTEMS INDIA PVT LTD",
-    role: "Level 2 Engineer / Software Engineer",
+    website: "https://aicnet.it/en",
+    logo: "",
+    role: "Full stack developer · Level 2 Engineer",
     period: "March 2021 — Present",
     start: "2021",
     end: "Present",
     location: "Bangalore, India",
     featured: true,
-    product: "Level 2 Automation systems for Rolling Mills",
-    stack: ["Angular", "Node.js", "MSSQL", ".NET Core API", "REST APIs"],
+    product: "Level 2 applications for Rolling Mills",
+    stack: ["Angular", "Node.js", "MSSQL", "RabbitMQ"],
     summary:
-      "Software for rolling mill Level 2 systems — applications, APIs, reporting, and integrations.",
+      "Software for rolling mill Level 2 applications - APIs, reporting, and mailing systems.",
     responsibilities: [
-      "Web applications for recipe management, consumption reporting, and roll management.",
-      "REST APIs and SQL Server features on Node.js and .NET Core.",
-      "Integrations with Kocks, SAP, and MES / QMOs on customer deployments.",
+      "Web applications for recipe management, production and consumption reporting, and roll management.",
+      "UI, API's , MSSQL and windows microservices built with Node.js and message broadcasting using RabbitMQ",
+      "Integrations with Kocks, SAP, and MES / QMOs on customer deployments, Mailing systems for reporting.",
     ],
   },
   {
     id: "afi",
     company: "AFI Infotech",
-    role: "Software Engineer / Angular & .NET Developer",
+    website: "https://www.solver-erp.com/product-healthcare/solver-hospital-management-information-system",
+    logo: "",
+    role: "Software Engineer",
     period: "November 2019 — February 2021",
     start: "2019",
     end: "2021",
     location: "Kochi, Kerala",
     featured: false,
     product: "HMS (Hospital Management System)",
-    stack: ["AngularJS", "VB.NET", "ASP.NET MVC", "SQL Server", "Angular", "jQuery"],
+    stack: ["AngularJS", "VB.NET", "SQL Server", "jQuery"],
     summary:
       "HMS (Hospital Management System) — operational modules as web applications on AngularJS, VB.NET, and SQL Server.",
     responsibilities: [
-      "Develop and extend HMS modules using AngularJS, VB.NET, and ASP.NET MVC.",
-      "Build API-backed screens and SQL Server data access for operational workflows.",
+      "Develop and extend HMS modules using AngularJS, VB.NET.",
+      "Build UI, API's and SQL Server data access for operational workflows.",
     ],
   },
   {
     id: "sysboon",
     company: "SYSBOON Technologies",
-    role: "Software Engineer / ASP.NET MVC Developer",
+    website: "",
+    logo: "",
+    role: "Senior Software Engineer",
     period: "April 2017 — October 2019",
     start: "2017",
     end: "2019",
     location: "Calicut, Kerala",
     featured: false,
-    product: "Business applications and customer projects",
+    product: "Customer projects using ASP.NET MVC",
     stack: ["ASP.NET MVC", "C#", "SQL Server", "APIs"],
     summary:
       "Business applications, APIs, workflow systems, and management systems for multiple customers.",
     responsibilities: [
-      "Deliver ASP.NET MVC applications and APIs against customer specifications.",
-      "Work on workflow and management systems used by internal and external users.",
-      "Support database and application work across concurrent customer projects.",
+      "Deliver ASP.NET MVC applications and APIs for customer specifications.",
+      "Work on workflow and management systems.",
+      "Support and maintain applications for concurrent customer projects.",
     ],
   },
   {
     id: "tekubez",
     company: "Tekubez Innovations",
+    website: "",
+    logo: "",
     role: "PHP Developer",
     period: "July 2016 — January 2017",
     start: "2016",
@@ -72,7 +83,7 @@ window.EXPERIENCE = [
     stack: ["PHP"],
     summary: "PHP development on customer and internal application work.",
     responsibilities: [
-      "Build and maintain PHP application features. [Add project-specific details here]",
+      "Build and maintain PHP application features",
     ],
   },
 ];

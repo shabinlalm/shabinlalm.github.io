@@ -61,7 +61,7 @@ Until files exist, the UI shows placeholders. That is intentional.
 Place the file at:
 
 ```
-public/resume/Shabin-Lal-Resume.pdf
+public/resume/Shabinlal-M-Resume.pdf
 ```
 
 If it is missing, Download/View stay disabled and a hint is shown in the Resume section.
