@@ -1,7 +1,3 @@
-/**
- * SITE CONFIG — edit this file to update profile, contact, social links, and resume path.
- * LinkedIn / GitHub: replace the empty strings below. Do not invent URLs.
- */
 window.SITE = {
   name: "Shabinlal M",
   shortName: "Shabinlal",
@@ -14,13 +10,11 @@ window.SITE = {
   phone: "+91 7356294296",
   phoneHref: "tel:+917356294296",
 
-  /* Replace these when you have public profiles. Leave empty to hide the live link. */
-  linkedin: "https://www.linkedin.com/in/shabin-lal-m/", // e.g. "https://www.linkedin.com/in/your-handle"
-  github: "", // e.g. "https://github.com/your-handle"
+  linkedin: "https://www.linkedin.com/in/shabin-lal-m/",
+  github: "", 
 
-  resumePath: "public/resume/Shabinlal-M-Resume.pdf",
+  resumePath: "public/resume/Shabinlal_Resume.pdf",
   careerStart: "2016-07",
-  /* After hosting, set this to the public site URL for Open Graph / sharing. */
   canonical: "",
 
   seo: {
@@ -32,7 +26,7 @@ window.SITE = {
   hero: {
     eyebrow: "Full stack developer · Bangalore",
     title: "Building reliable software for real-world industrial and enterprise systems.",
-    subtitle: "Angular · Node.js · .NET Core · MSSQL · Industrial Applications · System Integration",
+    subtitle: "Angular · Node.js · .NET Core · MSSQL · Windows Microservices · MQTT / RabbitMQ",
     lead: "I build reliable web applications, APIs, reporting systems and integrations for real-world business and industrial environments.",
   },
 

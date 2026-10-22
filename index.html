@@ -70,9 +70,9 @@
       </a>
 
       <nav class="nav-desktop" aria-label="Primary">
-        <a href="#work">Work</a>
+        <a href="#showcase">Showcase</a>
         <a href="#experience">Experience</a>
-        <a href="#applications">Applications</a>
+        <a href="#workflow">Workflow</a>
         <a href="#about">About</a>
         <a href="#contact">Contact</a>
       </nav>
@@ -90,9 +90,9 @@
 
     <div class="nav-mobile" id="nav-mobile" hidden>
       <nav aria-label="Mobile">
-        <a href="#work">Work</a>
+        <a href="#showcase">Showcase</a>
         <a href="#experience">Experience</a>
-        <a href="#applications">Applications</a>
+        <a href="#workflow">Workflow</a>
         <a href="#about">About</a>
         <a href="#resume">Resume</a>
         <a href="#contact">Contact</a>
@@ -120,14 +120,14 @@
               Building enterprise and industrial web applications.
             </h2>
             <p class="hero-sub">
-              Angular · Node.js · .NET Core · MSSQL · Windows Microservices · RabbitMQ
+              Angular · Node.js · .NET Core · MSSQL · Windows Microservices · MQTT / RabbitMQ
             </p>
             <p class="hero-lead">
               I develop web applications, APIs, reporting systems, and database solutions for steel plants and industrial applications. I also work on PLC communication and integrations with MES, SAP, KOCKS, and other plant systems.
             </p>
             <div class="hero-actions">
-              <a class="btn btn-solid" href="#work">View Projects</a>
-              <a class="btn btn-ghost" href="public/resume/Shabinlal-M-Resume.pdf" id="hero-resume" data-resume>Download Resume</a>
+              <a class="btn btn-solid" href="#showcase">View Showcase</a>
+              <a class="btn btn-ghost" href="public/resume/Shabinlal_Resume.pdf" id="hero-resume" download="Shabinlal_Resume.pdf" data-resume data-resume-download>Download Resume</a>
               <a class="btn btn-ghost" href="#contact">Contact Me</a>
             </div>
             <a class="hero-scroll" href="#about">More About Me ↓</a>
@@ -141,7 +141,7 @@
             <p class="hero-panel-title">Level 2 applications for rolling mills</p>
             <p class="hero-panel-org">AIC CAPITANIO AUTOMATION SYSTEMS INDIA PVT LTD</p>
             <ul class="hero-spec">
-              <li><span>Stack</span> Angular · Node.js · RabbitMQ · SQL Server</li>
+              <li><span>Stack</span> Angular · Node.js · Windows microservices · MQTT / RabbitMQ · SQL Server</li>
               <li><span>Integrations</span> SAP · MES / QMOs · Kocks</li>
               <li><span>Since</span> Professional software work from 2016</li>
             </ul>
@@ -226,29 +226,29 @@
       </div>
     </section>
 
-    <section class="section work" id="work">
+    <section class="section work" id="showcase">
       <div class="wrap">
         <div class="section-head">
-          <h2>Work</h2>
-          <p class="section-lead">Some of the projects I have worked on.</p>
+          <h2>Project Showcase</h2>
+          <p class="section-lead">A few examples of my work in web applications and industrial software.</p>
         </div>
         <div class="project-grid" id="project-grid"></div>
         <div class="more-projects" id="more-projects"></div>
       </div>
     </section>
 
-    <section class="section applications" id="applications">
+    <section class="section applications" id="workflow">
       <div class="wrap">
         <div class="section-head">
-          <h2>Industrial Applications</h2>
+          <h2>Industrial Workflow</h2>
           <p class="section-lead">
-            Application software on the Level 2 layer — not PLC or Level 1 control.
+            From the mill through Level 1 (SCADA, HMI, PLCs) into Level 2 application software.
           </p>
         </div>
 
         <figure class="flow-diagram" aria-labelledby="flow-caption">
           <figcaption id="flow-caption" class="visually-hidden">
-            Flow from rolling mill through Level 2 applications to MES, SAP and reports
+            Flow from rolling mill through Level 1 SCADA, HMI and PLCs into Level 2 applications, which connect to MES, SAP and Kocks
           </figcaption>
           <div class="flow-stack">
             <div class="flow-node flow-node-root">
@@ -259,80 +259,40 @@
             <div class="flow-arrow" aria-hidden="true">
               <span></span>
             </div>
-            <div class="flow-node flow-node-accent">
+            <div class="flow-node flow-node-group">
+              <span class="flow-label">Control layer</span>
+              <strong>Level 1 Applications</strong>
+              <div class="flow-row flow-row-3" role="list">
+                <div class="flow-node" role="listitem"><strong>SCADA</strong></div>
+                <div class="flow-node" role="listitem"><strong>HMI</strong></div>
+                <div class="flow-node" role="listitem"><strong>PLCs</strong></div>
+              </div>
+            </div>
+            <div class="flow-arrow" aria-hidden="true"><span></span></div>
+            <div class="flow-node flow-node-accent flow-node-group">
               <span class="flow-label">Application layer</span>
               <strong>Level 2 Applications</strong>
-              <span class="flow-hint">Web apps · APIs · SQL Server</span>
-            </div>
-            <div class="flow-arrow" aria-hidden="true"><span></span></div>
-            <div class="flow-row" role="list">
-              <div class="flow-node" role="listitem"><strong>Recipes</strong></div>
-              <div class="flow-node" role="listitem"><strong>Production / Consumption</strong></div>
-              <div class="flow-node" role="listitem"><strong>Roll Management</strong></div>
-              <div class="flow-node" role="listitem"><strong>Reporting</strong></div>
-            </div>
-            <div class="flow-arrow" aria-hidden="true"><span></span></div>
-            <div class="flow-row" role="list">
-              <div class="flow-node" role="listitem"><strong>MES / QMOs</strong></div>
-              <div class="flow-node" role="listitem"><strong>SAP</strong></div>
-              <div class="flow-node" role="listitem"><strong>Kocks</strong></div>
-            </div>
-            <div class="flow-arrow" aria-hidden="true"><span></span></div>
-            <div class="flow-node">
-              <span class="flow-label">Business</span>
-              <strong>Reports &amp; operational information</strong>
-              <span class="flow-hint">Used by operations and enterprise processes</span>
+              <div class="flow-split">
+                <div class="flow-split-col" role="list">
+                  <div class="flow-node" role="listitem"><strong>Material Tracking</strong></div>
+                  <div class="flow-node" role="listitem"><strong>Recipe</strong></div>
+                  <div class="flow-node" role="listitem"><strong>Reporting</strong></div>
+                  <div class="flow-node" role="listitem"><strong>Trends</strong></div>
+                  <div class="flow-node" role="listitem"><strong>Dashboard</strong></div>
+                </div>
+                <div class="flow-arrow-h" aria-hidden="true"><span></span></div>
+                <div class="flow-node flow-split-target">
+                  <span class="flow-label">Level 3 / Interface</span>
+                  <div class="flow-split-col" role="list">
+                    <div class="flow-node" role="listitem"><strong>MES / QMOs</strong></div>
+                    <div class="flow-node" role="listitem"><strong>SAP</strong></div>
+                    <div class="flow-node" role="listitem"><strong>Kocks</strong></div>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </figure>
-      </div>
-    </section>
-
-    <section class="section integrations" id="integrations">
-      <div class="wrap">
-        <div class="section-head">
-          <h2>Integrations</h2>
-          <p class="section-lead">
-            Conceptual view — not every listed technology is used in every project.
-          </p>
-        </div>
-
-        <div class="integ-board" aria-hidden="false">
-          <div class="integ-col">
-            <article class="integ-card">
-              <span class="integ-k">Enterprise</span>
-              <h3>SAP</h3>
-              <p>Business system interface from the application / API layer.</p>
-            </article>
-            <article class="integ-card">
-              <span class="integ-k">Execution</span>
-              <h3>MES / QMOs</h3>
-              <p>Manufacturing execution exchange with Level 2 software.</p>
-            </article>
-            <article class="integ-card">
-              <span class="integ-k">Mill systems</span>
-              <h3>Kocks</h3>
-              <p>Specialized mill system integration on customer lines.</p>
-            </article>
-          </div>
-
-          <ol class="integ-spine">
-            <li><span>.NET Core API</span></li>
-            <li><span>Node.js services</span></li>
-            <li><span>RabbitMQ</span></li>
-            <li><span>REST APIs</span></li>
-            <li><span>Angular application</span></li>
-            <li><span>MSSQL / SQL Server</span></li>
-          </ol>
-
-          <aside class="integ-note">
-            <p>
-              Typical shape of the work: a browser application talking to APIs, a SQL Server database as the
-              system of record, and adapters toward SAP, MES, or mill-specific systems. Messaging (RabbitMQ)
-              appears where asynchronous exchange is required — not as a default in every solution.
-            </p>
-          </aside>
-        </div>
       </div>
     </section>
 
@@ -366,7 +326,7 @@
         <div class="section-head">
           <h2>Customers</h2>
           <p class="section-lead">
-            Organizations software was delivered for — not employers.
+            Companies and organizations I've worked on software projects for.
           </p>
         </div>
         <div class="client-grid" id="client-grid"></div>
@@ -378,22 +338,21 @@
         <div>
           <h2>Resume</h2>
           <p>
-            A concise record of roles, stack, and selected systems. The public site does not include a home
-            address or date of birth.
+            A PDF of my roles, stack, and selected systems. Download it or open it in the browser.
           </p>
           <p class="resume-hint" id="resume-hint" hidden>
-            Add your PDF at <code>public/resume/Shabinlal-M-Resume.pdf</code> to enable download and in-browser view.
+            Resume file is not available right now.
           </p>
           <div class="hero-actions">
-            <a class="btn btn-solid" id="resume-download" href="public/resume/Shabinlal-M-Resume.pdf" data-resume>Download Resume</a>
-            <a class="btn btn-ghost" id="resume-view" href="public/resume/Shabinlal-M-Resume.pdf" target="_blank" rel="noopener" data-resume>View Resume</a>
+            <a class="btn btn-solid" id="resume-download" href="public/resume/Shabinlal_Resume.pdf" download="Shabinlal_Resume.pdf" data-resume data-resume-download>Download Resume</a>
+            <a class="btn btn-ghost" id="resume-view" href="public/resume/Shabinlal_Resume.pdf" target="_blank" rel="noopener" data-resume>View Resume</a>
           </div>
         </div>
         <ul class="resume-facts">
           <li><span>Current</span> AIC CAPITANIO AUTOMATION SYSTEMS INDIA PVT LTD · Bangalore</li>
-          <li><span>Focus</span> Angular, Node.js, .NET Core, SQL Server</li>
-          <li><span>Domain</span> Level 2 rolling mill systems</li>
-          <li><span>Experience</span> Professional software work since 2016</li>
+          <li><span>Focus</span> Angular · Node.js · ASP.NET Core · C# · SQL Server</li>
+          <li><span>Domain</span> Rolling mill Level 2 applications</li>
+          <li><span>Experience</span> Professional software development since 2016</li>
         </ul>
       </div>
     </section>
@@ -433,7 +392,7 @@
   <footer class="site-footer">
     <div class="wrap footer-inner">
       <p>© <span id="year"></span> Shabinlal M · Full stack developer</p>
-      <p class="footer-note">Enterprise applications · Industrial applications · System integration</p>
+      <p class="footer-note">Enterprise applications · Industrial applications · System integrations</p>
     </div>
   </footer>
 

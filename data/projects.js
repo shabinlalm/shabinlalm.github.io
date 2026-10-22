@@ -1,12 +1,3 @@
-/**
- * PROJECTS — add a project by copying an object and giving it a unique `id`.
- *
- * Assets live under /public/projects/<id>/
- *   cover.jpg          — card image (optional)
- *   01.jpg, 02.jpg     — screenshots (list in `screenshots`)
- *
- * Do not add confidential URLs, IPs, credentials, or customer internals.
- */
 window.PROJECTS = [
   {
     id: "recipe-reporting",

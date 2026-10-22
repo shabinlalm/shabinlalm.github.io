@@ -1,26 +1,65 @@
-/**
- * CLIENTS / CUSTOMERS
- * These are organizations software was delivered for — not employers.
- * Add a logo file under public/clients/ and set `logo` to that path.
- * Do not hotlink random internet logos.
- */
 window.CLIENTS = [
+  {
+    id: "arcelor-mittal",
+    name: "ArcelorMittal",
+    place: "Kryvyi Rih, Ukraine",
+    context: "LF & CCM Application for Steel Plant",
+    logo: "public/clients/arcelorMittal.png",
+  },
+  {
+    id: "rashmi-mettalics",
+    name: "Rashmi Metaliks",
+    place: "West Bengal, India",
+    context: "Recipe & Reporting System for Steel Plant",
+    logo: "public/clients/rashmi.png",
+  },
+  {
+    id: "jazeera-steel",
+    name: "Al Jazeera Steel",
+    place: "Dubai, UAE",
+    context: "Level 2 application for Steel Plant",
+    logo: "public/clients/AlJazeera.png",
+  },
+  {
+    id: "arjas-steel",
+    name: "Arjas Steel",
+    place: "Tadipatri, Andhra Pradesh, India",
+    context: "Recipe & Reporting System for Steel Plant",
+    logo: "public/clients/arjas.png",
+  },
+  {
+    id: "supershakti-metaliks",
+    name: "Super Shakti Metaliks",
+    place: "West Bengal, India",
+    context: "Recipe & Reporting System for Steel Plant",
+    logo: "public/clients/superShakti.png",
+  },
+  {
+    id: "suryadev-alloys-and-power",
+    name: "Suryadev Alloys And Power",
+    place: "Chennai, India",
+    context: "Recipe & Reporting System for Steel Plant",
+    logo: "public/clients/suryadev.png",
+  },
   {
     id: "renault-nissan",
     name: "Renault-Nissan Automotive India",
-    context: "Project / solution delivered for Renault-Nissan Automotive India Private Limited (4M workflow management).",
-    logo: "", // e.g. "public/clients/renault-nissan.svg"
+    place: "Chennai, India",
+    context: "4M Workflow Management Application for Automotive Industry",
+    logo: "public/clients/renaultNissan.png",
   },
   {
     id: "honeywell",
     name: "Honeywell Automation India",
-    context: "Worked on software for Honeywell Automation India Limited (thermal chamber control system).",
-    logo: "",
+    place: "Bangalore, India",
+    context: "Thermal Chamber Control and Monitoring System",
+    logo: "public/clients/honeywell.png",
   },
   {
     id: "kottakkal",
     name: "Kottakkal Arya Vaidya Sala",
+    place: "Kottakkal, Kerala",
     context: "Worked on software for Kottakkal Arya Vaidya Sala (backend administration and mobile API).",
-    logo: "",
+    logo: "public/clients/kottakkal.png",
   },
 ];

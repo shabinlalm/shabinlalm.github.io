@@ -320,10 +320,20 @@
     if (!root) return;
     root.innerHTML = list
       .map((c) => {
-        const visual = c.logo
-          ? `<img src="${escapeHtml(c.logo)}" alt="${escapeHtml(c.name)} logo" loading="lazy" />`
-          : `<div class="client-mark">${escapeHtml(c.name)}</div>`;
-        return `<article class="client-card">${visual}<p>${escapeHtml(c.context)}</p></article>`;
+        const logo = c.logo
+          ? `<span class="client-logo"><img src="${escapeHtml(c.logo)}" alt="" loading="lazy" /></span>`
+          : "";
+        const place = c.place ? `<p class="client-place">${escapeHtml(c.place)}</p>` : "";
+        return `<article class="client-card">
+          <div class="client-title">
+            ${logo}
+            <div class="client-id">
+              <div class="client-mark">${escapeHtml(c.name)}</div>
+              ${place}
+            </div>
+          </div>
+          <p>${escapeHtml(c.context)}</p>
+        </article>`;
       })
       .join("");
   }
@@ -337,7 +347,24 @@
 
     wireSocial("linkedin-card", site.linkedin, "LinkedIn");
     wireSocial("github-card", site.github, "GitHub");
+    wireResume();
     probeResume();
+  }
+
+  function resumeFileName(path) {
+    return String(path || "").split("/").pop() || "Shabinlal_Resume.pdf";
+  }
+
+  function wireResume() {
+    const path = window.SITE?.resumePath;
+    if (!path) return;
+    const name = resumeFileName(path);
+    $$("[data-resume]").forEach((el) => {
+      el.setAttribute("href", path);
+      if (el.hasAttribute("data-resume-download") || el.id === "resume-download" || el.id === "hero-resume") {
+        el.setAttribute("download", name);
+      }
+    });
   }
 
   function wireSocial(id, url, label) {
@@ -360,10 +387,8 @@
     const path = window.SITE?.resumePath;
     const hint = $("#resume-hint");
     if (!path) return;
-    try {
-      const res = await fetch(path, { method: "HEAD" });
-      if (!res.ok) throw new Error("missing");
-    } catch {
+
+    const markMissing = () => {
       hint?.removeAttribute("hidden");
       $$("[data-resume]").forEach((el) => {
         el.setAttribute("aria-disabled", "true");
@@ -374,11 +399,25 @@
           $("#resume")?.scrollIntoView({ behavior: "smooth" });
         });
       });
+    };
+
+    try {
+      let res = await fetch(path, { method: "HEAD", cache: "no-store" });
+      if (!res.ok && (res.status === 405 || res.status === 501)) {
+        res = await fetch(path, { method: "GET", cache: "no-store" });
+      }
+      if (res.ok || res.status === 206) {
+        hint?.setAttribute("hidden", "");
+        return;
+      }
+      if (res.status === 404) markMissing();
+    } catch {
+      hint?.setAttribute("hidden", "");
     }
   }
 
   function initReveal() {
-    const nodes = $$(".section-head, .exp-card, .project-card, .client-card, .stack-group, .journey-item, .hero-panel, .flow-diagram, .integ-board, .resume-panel, .contact-card");
+    const nodes = $$(".section-head, .exp-card, .project-card, .client-card, .stack-group, .journey-item, .hero-panel, .flow-diagram, .resume-panel, .contact-card");
     nodes.forEach((el) => el.classList.add("rise-in"));
     if (!("IntersectionObserver" in window) || window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
       nodes.forEach((el) => el.classList.add("is-in"));

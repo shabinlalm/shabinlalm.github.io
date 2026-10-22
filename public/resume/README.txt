@@ -1,2 +1,2 @@
-Place Shabinlal-M-Resume.pdf in this folder.
-The site looks for: public/resume/Shabinlal-M-Resume.pdf
+Place Shabinlal_Resume.pdf in this folder.
+The site looks for: public/resume/Shabinlal_Resume.pdf

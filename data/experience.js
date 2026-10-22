@@ -1,10 +1,3 @@
-/**
- * CAREER EXPERIENCE — add a new role by appending an object.
- *
- * Optional:
- *   website  Official company URL (opens in a new tab). Leave "" if you do not have it.
- *   logo     Path under public/companies/  e.g. "public/companies/aic.png"
- */
 window.EXPERIENCE = [
   {
     id: "aic",
@@ -18,12 +11,12 @@ window.EXPERIENCE = [
     location: "Bangalore, India",
     featured: true,
     product: "Level 2 applications for Rolling Mills",
-    stack: ["Angular", "Node.js", "MSSQL", "RabbitMQ"],
+    stack: ["Angular", "Node.js", "MSSQL", "Windows microservices", "MQTT / RabbitMQ"],
     summary:
       "Software for rolling mill Level 2 applications - APIs, reporting, and mailing systems.",
     responsibilities: [
       "Web applications for recipe management, production and consumption reporting, and roll management.",
-      "UI, API's , MSSQL and windows microservices built with Node.js and message broadcasting using RabbitMQ",
+      "UI, APIs, MSSQL, and Windows microservices in Node.js for PLC communication and business logic, with MQTT on RabbitMQ for messaging between services.",
       "Integrations with Kocks, SAP, and MES / QMOs on customer deployments, Mailing systems for reporting.",
     ],
   },
@@ -92,5 +85,5 @@ window.CAREER_JOURNEY = [
   { year: "2016", title: "PHP", place: "Tekubez · Malappuram" },
   { year: "2017", title: "ASP.NET MVC", place: "SYSBOON · Calicut" },
   { year: "2019", title: "AngularJS · VB.NET", place: "AFI Infotech · Kochi" },
-  { year: "2021", title: "Angular · Node.js", place: "AIC Capitanio · Bangalore" },
+  { year: "2021", title: "Angular · Node.js · ASP.NET Core", place: "AIC Capitanio · Bangalore" },
 ];
