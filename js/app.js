@@ -289,7 +289,7 @@
     const year = $("#year");
     if (year) year.textContent = String(new Date().getFullYear());
 
-    wireSocial("linkedin-card", site.linkedin, "LinkedIn");
+    wireSocial("linkedin-card", site.linkedin, "LinkedIn", site.linkedinLabel);
     wireResume();
     probeResume();
   }
@@ -310,7 +310,7 @@
     });
   }
 
-  function wireSocial(id, url, label) {
+  function wireSocial(id, url, label, displayLabel) {
     const card = document.getElementById(id);
     if (!card) return;
     if (url) {
@@ -319,7 +319,7 @@
       a.href = url;
       a.target = "_blank";
       a.rel = "noopener noreferrer";
-      a.innerHTML = `<span>${label}</span><strong>${escapeHtml(url.replace(/^https?:\/\//, ""))}</strong>`;
+      a.innerHTML = `<span>${label}</span><strong>${escapeHtml(displayLabel || label)}</strong>`;
       card.replaceWith(a);
     } else {
       card.classList.add("is-placeholder");

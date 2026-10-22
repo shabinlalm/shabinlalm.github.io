@@ -6,6 +6,7 @@ window.SITE = {
   email: "shabinlal.m96@gmail.com",
   phone: "+91 7356294296",
   linkedin: "https://www.linkedin.com/in/shabin-lal-m/",
+  linkedinLabel: "View profile",
   github: "",
   resumePath: "public/resume/Shabinlal_Resume.pdf",
 };
