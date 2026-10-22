@@ -2,10 +2,9 @@ window.PROJECTS = [
   {
     id: "recipe-reporting",
     title: "Recipe System",
-    featured: true,
     stack: ["Angular", "Node.js", "MSSQL", ".NET Core API", "SSRS"],
     summary:
-      "Recipe  System is a web application for Steel Rolling Mills to manage mill recipes",
+      "Recipe System is a web application for Steel Rolling Mills to manage mill recipes",
     screenshots: [
       { src: "public/projects/recipe-reporting/login.png", caption: "Login Page" },
       { src: "public/projects/recipe-reporting/01.png", caption: "Recipe stands" },
@@ -17,7 +16,6 @@ window.PROJECTS = [
   {
     id: "consumptions",
     title: "Reporting System",
-    featured: true,
     stack: ["Angular", "Node.js", "MSSQL"],
     summary:
       "Reporting System is a web application for Steel Rolling Mills to produce production and consumption reports.",
@@ -32,7 +30,6 @@ window.PROJECTS = [
   {
     id: "roll-management",
     title: "Roll Management System",
-    featured: true,
     stack: ["Angular", "Node.js", "MSSQL", "Windows Microservices by Node.js"],
     summary:
       "Roll Management System is a web application for Steel Rolling Mills to manage and monitor the complete lifecycle of mill rolls used across different rolling mill stands.",
@@ -41,13 +38,14 @@ window.PROJECTS = [
       { src: "public/projects/roll-management/02.png", caption: "Roll Management" },
       { src: "public/projects/roll-management/03.png", caption: "Roll Management" },
       { src: "public/projects/roll-management/04.png", caption: "Roll Management" },
+      { src: "public/projects/roll-management/05.png", caption: "Roll Management" },
+      { src: "public/projects/roll-management/06.png", caption: "Roll Management" },
     ],
     cover: "",
   },
   {
     id: "arcelor-mittal",
     title: "LF & CCM",
-    featured: true,
     stack: ["Angular", "ASP.NET Core API", ".NET", "C#", "MSSQL"],
     summary:
       "LF & CCM is a web application for Steel Rolling Mills to manage LF and CCM operations.",

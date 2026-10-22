@@ -1,21 +1,6 @@
-/* ==========================================================================
-   Portfolio application
-   Content comes from /data/*.js — keep UI logic here, copy there.
-   ========================================================================== */
-
 (function () {
   const $ = (sel, root = document) => root.querySelector(sel);
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
-
-  function yearsSince(iso) {
-    const start = new Date(iso + "-01");
-    if (Number.isNaN(start.getTime())) return null;
-    const now = new Date();
-    let years = now.getFullYear() - start.getFullYear();
-    const m = now.getMonth() - start.getMonth();
-    if (m < 0 || (m === 0 && now.getDate() < start.getDate())) years -= 1;
-    return Math.max(0, years);
-  }
 
   function escapeHtml(str) {
     return String(str ?? "")
@@ -53,7 +38,7 @@
           return `<div class="slider-slide" data-slide="${i}">
             <div class="cover-placeholder v${slide.variant % 3}">
               <span class="idx">${n}</span>
-              <span class="cat">${escapeHtml(slide.caption)} · add files in public/projects/${escapeHtml(project.id)}/</span>
+              <span class="cat">${escapeHtml(slide.caption)}</span>
             </div>
           </div>`;
         }
@@ -87,7 +72,7 @@
   }
 
   function mountSliders(scope) {
-    $$( "[data-slider]", scope || document).forEach((slider) => {
+    $$("[data-slider]", scope || document).forEach((slider) => {
       if (slider.dataset.bound === "1") return;
       slider.dataset.bound = "1";
       slider.dataset.index = "0";
@@ -106,8 +91,6 @@
       });
     });
   }
-
-  /* ----- Theme ----- */
 
   function initTheme() {
     const stored = localStorage.getItem("theme");
@@ -129,8 +112,6 @@
     btn.setAttribute("aria-label", theme === "dark" ? "Switch to light theme" : "Switch to dark theme");
     document.querySelector('meta[name="theme-color"]')?.setAttribute("content", theme === "dark" ? "#0c1116" : "#f4f0e8");
   }
-
-  /* ----- Header / nav ----- */
 
   function initHeader() {
     const header = $("#site-header");
@@ -168,8 +149,6 @@
       });
     });
   }
-
-  /* ----- Experience ----- */
 
   function companyHeading(job) {
     const name = escapeHtml(job.company);
@@ -220,16 +199,10 @@
       .join("");
   }
 
-  /* ----- Projects ----- */
-
-  function visibleProjects() {
-    return (window.PROJECTS || []).filter((p) => !p.supporting);
-  }
-
   function renderProjects() {
     const root = $("#project-grid");
     if (!root) return;
-    const list = visibleProjects();
+    const list = window.PROJECTS || [];
     if (!list.length) {
       root.innerHTML = `<p class="section-lead">No projects yet.</p>`;
       return;
@@ -248,36 +221,9 @@
       })
       .join("");
 
-    renderSupporting();
     mountSliders(root);
     $$(".project-card", root).forEach((el) => el.classList.add("rise-in", "is-in"));
   }
-
-  function renderSupporting() {
-    const root = $("#more-projects");
-    if (!root) return;
-    const extra = (window.PROJECTS || []).filter((p) => p.supporting);
-    if (!extra.length) {
-      root.innerHTML = "";
-      return;
-    }
-    root.innerHTML = `
-      <h3 class="more-title">Additional systems</h3>
-      <p class="section-lead">Earlier product and customer work kept here as supporting history — not the current focus.</p>
-      <div class="study-list">
-        ${extra
-          .map(
-            (p) => `
-          <article class="study-row">
-            <h3>${escapeHtml(p.title)}</h3>
-            <p>${escapeHtml(p.summary)}</p>
-          </article>`
-          )
-          .join("")}
-      </div>`;
-  }
-
-  /* ----- Skills / clients ----- */
 
   function renderStack() {
     const root = $("#stack-groups");
@@ -338,15 +284,12 @@
       .join("");
   }
 
-  /* ----- Contact / resume ----- */
-
   function renderContact() {
     const site = window.SITE || {};
     const year = $("#year");
     if (year) year.textContent = String(new Date().getFullYear());
 
     wireSocial("linkedin-card", site.linkedin, "LinkedIn");
-    wireSocial("github-card", site.github, "GitHub");
     wireResume();
     probeResume();
   }
@@ -446,12 +389,6 @@
     renderClients();
     renderContact();
     initReveal();
-
-    const y = yearsSince(window.SITE?.careerStart);
-    if (y) {
-      /* years available for future copy; kept for maintainability */
-      document.documentElement.dataset.years = String(y);
-    }
   }
 
   if (document.readyState === "loading") {

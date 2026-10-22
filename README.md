@@ -20,10 +20,10 @@ Open `http://localhost:8080`.
 
 | You want to change | File |
 | --- | --- |
-| Name, email, phone, LinkedIn, GitHub, resume path, hero/about copy | `data/site.js` |
+| Name, email, phone, LinkedIn, resume path | `data/site.js` |
 | Jobs / timeline | `data/experience.js` |
-| Projects, case studies, screenshot paths, PDFs | `data/projects.js` |
-| Skills and expertise tiles | `data/skills.js` |
+| Projects and screenshot paths | `data/projects.js` |
+| Skills | `data/skills.js` |
 | Customer names and logos | `data/clients.js` |
 | Visual design | `css/styles.css` |
 | Page structure | `index.html` |
@@ -45,16 +45,6 @@ screenshots: [
   { src: "public/projects/recipe-reporting/01.jpg", caption: "Recipe editor" }
 ]
 ```
-
-Example document entry:
-
-```js
-documents: [
-  { title: "Sample report", description: "Public excerpt", src: "public/documents/sample.pdf" }
-]
-```
-
-Until files exist, the UI shows placeholders. That is intentional.
 
 ## Resume PDF
 

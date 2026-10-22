@@ -7,7 +7,6 @@
   --bg: #0c1116;
   --bg-2: #12181f;
   --surface: #171e26;
-  --surface-2: #1d2630;
   --text: #f3efe6;
   --text-2: #b7bfc8;
   --text-3: #7e8792;
@@ -24,14 +23,12 @@
   --serif: "Fraunces", Georgia, serif;
   --mono: "IBM Plex Mono", ui-monospace, monospace;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
-  --shadow: 0 22px 50px rgba(0, 0, 0, 0.38);
 }
 
 html[data-theme="light"] {
   --bg: #f4f0e8;
   --bg-2: #ebe4d6;
   --surface: #fffaf2;
-  --surface-2: #f7f1e6;
   --text: #16191e;
   --text-2: #4f5863;
   --text-3: #74808c;
@@ -41,7 +38,6 @@ html[data-theme="light"] {
   --accent-2: #1e5a8a;
   --accent-soft: rgba(138, 100, 36, 0.1);
   --ok: #1f7a52;
-  --shadow: 0 18px 40px rgba(22, 24, 28, 0.08);
 }
 
 html[data-theme="light"] .theme-toggle-icon {
@@ -600,22 +596,6 @@ html[data-theme="light"] .btn-solid {
   text-align: left;
 }
 
-.kicker {
-  display: flex;
-  align-items: center;
-  gap: 0.7rem;
-  margin: 0 0 0.85rem;
-  font-family: var(--mono);
-  font-size: 0.74rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--text-3);
-}
-
-.kicker span {
-  color: var(--accent);
-}
-
 .section h2,
 .about h2,
 .resume-panel h2 {
@@ -631,14 +611,6 @@ html[data-theme="light"] .btn-solid {
 .section-lead {
   margin: 0.9rem 0 0;
   color: var(--text-2);
-}
-
-.section-lead code,
-.resume-hint code,
-.section-head code {
-  font-family: var(--mono);
-  font-size: 0.82em;
-  color: var(--accent-2);
 }
 
 /* ----- About ----- */
@@ -922,18 +894,6 @@ a.exp-company:hover {
   transform: scale(1.15);
 }
 
-.slider-caption {
-  position: absolute;
-  left: 0.9rem;
-  bottom: 0.85rem;
-  z-index: 2;
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  color: var(--text-2);
-}
-
 .cover-placeholder {
   position: absolute;
   inset: 0;
@@ -989,17 +949,6 @@ a.exp-company:hover {
   margin: 0;
   color: var(--text-2);
   font-size: 0.95rem;
-}
-
-.project-body ul {
-  margin: 0.15rem 0 0;
-  padding-left: 1.05rem;
-  color: var(--text-2);
-  font-size: 0.9rem;
-}
-
-.project-body li + li {
-  margin-top: 0.2rem;
 }
 
 .project-body .chip-row {
@@ -1155,51 +1104,6 @@ a.exp-company:hover {
   border-right: 1px solid var(--line-strong);
   border-bottom: 1px solid var(--line-strong);
   transform: translateX(-50%) rotate(45deg);
-}
-
-/* ----- Case study list ----- */
-
-.more-projects {
-  margin-top: 2.4rem;
-}
-
-.more-title {
-  margin: 0 0 0.35rem;
-  font-family: var(--serif);
-  font-size: 1.45rem;
-  font-weight: 400;
-}
-
-.more-projects .study-list {
-  margin-top: 1rem;
-}
-
-.study-list {
-  display: grid;
-  gap: 0.75rem;
-}
-
-.study-row {
-  padding: 1.1rem 1.2rem;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  background: var(--surface);
-  color: inherit;
-}
-
-.study-row:hover {
-  border-color: var(--line-strong);
-}
-
-.study-row h3 {
-  margin: 0;
-  font-size: 1.05rem;
-}
-
-.study-row p {
-  margin: 0.2rem 0 0;
-  color: var(--text-2);
-  font-size: 0.9rem;
 }
 
 /* ----- Stack ----- */

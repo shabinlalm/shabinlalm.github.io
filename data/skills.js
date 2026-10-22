@@ -1,17 +1,10 @@
-/**
- * SKILLS — grouped badges. Use level: "primary" | "experienced" | "working".
- * Do not add percentage bars. Add a technology by inserting a { name, level } object.
- */
 window.SKILLS = {
-    intro:
-    "Primary work is Angular, Node.js, .NET Core, and SQL Server. Earlier roles: ASP.NET MVC, AngularJS, VB.NET, and PHP.",
   groups: [
     {
       id: "frontend",
       title: "Frontend",
       items: [
         { name: "Angular", level: "primary" },
-        // { name: "JavaScript", level: "primary" },
         { name: "HTML", level: "primary" },
         { name: "CSS", level: "primary" },
         { name: "ASP.NET MVC", level: "experienced" },
@@ -26,12 +19,8 @@ window.SKILLS = {
         { name: "Node.js", level: "primary" },
         { name: "C#", level: "primary" },
         { name: ".NET Core", level: "primary" },
-        // { name: "REST APIs", level: "primary" },
-        // { name: "Windows microservices", level: "primary" },
-        // { name: ".NET", level: "experienced" },
         { name: "ASP.NET MVC", level: "experienced" },
         { name: "VB.NET", level: "experienced" },
-        // { name: "PHP", level: "working" },
         { name: "AJAX", level: "experienced" },
       ],
     },
