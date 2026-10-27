@@ -11,12 +11,12 @@ window.EXPERIENCE = [
     location: "Bangalore, India",
     featured: true,
     product: "Level 2 applications for Rolling Mills",
-    stack: ["Angular", "Node.js", "MSSQL", "Windows microservices", "MQTT / RabbitMQ"],
+    stack: ["Angular", "Node.js", "MSSQL", "Windows microservices", "AMQP / RabbitMQ"],
     summary:
       "Software for rolling mill Level 2 applications - APIs, reporting, and mailing systems.",
     responsibilities: [
       "Web applications for recipe management, production and consumption reporting, and roll management.",
-      "UI, APIs, MSSQL, and Windows microservices in Node.js for PLC communication and business logic, with MQTT on RabbitMQ for messaging between services.",
+      "UI, APIs, MSSQL, and Windows microservices in Node.js for PLC communication and business logic, with AMQP on RabbitMQ for messaging between services.",
       "Integrations with Kocks System, SAP, and MES / QMOs on customer deployments, Mailing systems for reporting.",
     ],
   },
