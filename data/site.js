@@ -8,5 +8,5 @@ window.SITE = {
   linkedin: "https://www.linkedin.com/in/shabin-lal-m/",
   linkedinLabel: "View profile",
   github: "",
-  resumePath: "public/resume/Shabinlal_Resume.pdf",
+  resumePath: "https://shy-cell-7a60.shabinlal-m96.workers.dev/Shabinlal_Resume.pdf",
 };

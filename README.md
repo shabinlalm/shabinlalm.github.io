@@ -46,20 +46,6 @@ screenshots: [
 ]
 ```
 
-## Resume PDF
-
-Place the file at:
-
-```
-public/resume/Shabinlal_Resume.pdf
-```
-
-If it is missing, Download/View stay disabled and a hint is shown in the Resume section.
-
-## Logos
-
-Put files in `public/clients/` and set `logo` in `data/clients.js`. Do not hotlink random internet logos.
-
 ## Theme
 
 Dark is the default. The toggle stores `localStorage.theme` as `dark` or `light`.
